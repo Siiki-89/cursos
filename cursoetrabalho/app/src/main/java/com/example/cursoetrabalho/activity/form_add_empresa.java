@@ -24,6 +24,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import com.example.cursoetrabalho.R;
+import com.example.cursoetrabalho.consultor.MascaraCEP;
 import com.example.cursoetrabalho.consultor.MascaraCNPJ;
 import com.example.cursoetrabalho.consultor.MascaraData;
 import com.google.android.material.textfield.TextInputEditText;
@@ -55,6 +56,7 @@ public class form_add_empresa extends AppCompatActivity {
         empresaTelefone = findViewById(R.id.txtTelefoneCampo);
 
         empresaCNPJ.addTextChangedListener(new MascaraCNPJ(empresaCNPJ));
+        empresaCEP.addTextChangedListener(new MascaraCEP(empresaCEP, empresaUF, empresaCidade, empresaEndereco));
 
         btnFinalizar = findViewById(R.id.btnFinalizar);
 
