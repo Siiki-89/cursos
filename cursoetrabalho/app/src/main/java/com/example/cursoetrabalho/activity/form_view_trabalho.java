@@ -25,8 +25,6 @@ public class form_view_trabalho extends AppCompatActivity {
         Intent intent = getIntent();
         String nomeCurso = intent.getExtras().getString("txtCargo");
 
-        Log.d("xabbbb" , nomeCurso);
-
         txtCargo = findViewById(R.id.txtVagaTrabalho4);
         txtEmpresa = findViewById(R.id.txtEmpresa3);
         txtData = findViewById(R.id.txtPrazo3);

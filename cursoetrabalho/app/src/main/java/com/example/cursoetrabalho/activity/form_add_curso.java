@@ -1,15 +1,9 @@
 package com.example.cursoetrabalho.activity;
 
-import androidx.annotation.LongDef;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
-import android.graphics.MaskFilter;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -17,27 +11,13 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.example.cursoetrabalho.DAO.CursoDAO;
 import com.example.cursoetrabalho.DTO.CursoDTO;
 
 import com.example.cursoetrabalho.R;
-import com.example.cursoetrabalho.consultor.Mascaras;
-import com.example.cursoetrabalho.model.Postagem;
+import com.example.cursoetrabalho.consultor.MascaraData;
 import com.google.android.material.textfield.TextInputEditText;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class form_add_curso extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -77,7 +57,7 @@ public class form_add_curso extends AppCompatActivity implements AdapterView.OnI
         cursoModalidadeButton = findViewById(R.id.RGroup);
 
         btnEnviar = findViewById(R.id.btnFinalizar);
-        cursoQtdHoras.addTextChangedListener(new Mascaras(cursoQtdHoras));
+        cursoQtdHoras.addTextChangedListener(new MascaraData(cursoQtdHoras));
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

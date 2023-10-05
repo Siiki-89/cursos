@@ -32,6 +32,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtNomeEmpresaCampo"
                 android:layout_width="match_parent"
+                android:maxLength="55"
                 android:layout_height="wrap_content"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -55,8 +56,9 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtCNPJCampo"
                 android:layout_width="match_parent"
+                android:maxLength="18"
                 android:layout_height="wrap_content"
-                android:inputType="number" />
+                android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout

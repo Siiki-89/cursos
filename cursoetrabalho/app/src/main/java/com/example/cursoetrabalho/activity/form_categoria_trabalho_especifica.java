@@ -30,14 +30,15 @@ public class form_categoria_trabalho_especifica extends AppCompatActivity {
 
         Intent intent = getIntent();
         String categoriaTrabalho = intent.getExtras().getString("categoriaTrabalho");
+
         txtCategoria = findViewById(R.id.txtCategoria);
         recyclerPostagem = findViewById(R.id.recyclerView);
 
         txtCategoria.setText(categoriaTrabalho);
-        VagaDAO vagaDAO = new VagaDAO(getApplicationContext());
+        VagaDAO vagaDAO = new VagaDAO(this);
         prepararRecyclerPostagem(recyclerPostagem);
 
-        PostagemTrabalhoVerticalAdapter adapter = vagaDAO.imprimirDados(trabalhos, recyclerPostagem, getApplicationContext(), "2", categoriaTrabalho);
+        PostagemTrabalhoVerticalAdapter adapter = vagaDAO.imprimirDados(trabalhos, recyclerPostagem, "1", "");
         recyclerPostagem.setAdapter(adapter);
     }
     public void prepararRecyclerPostagem(RecyclerView recyclerView){

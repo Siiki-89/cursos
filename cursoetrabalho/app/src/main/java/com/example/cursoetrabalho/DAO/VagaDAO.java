@@ -29,7 +29,7 @@ import java.util.Map;
 
 public class VagaDAO {
     private Context mContext;
-    private static final String BASE_URL = "http://192.168.1.4/";
+    private static final String BASE_URL = "http://10.3.17.112/";
     private static final String INSERT_URL = BASE_URL + "/conexao/cadastroVaga.php";
     private static final String LIST_URL = BASE_URL + "/conexao/listarVaga.php";
 
@@ -101,7 +101,7 @@ public class VagaDAO {
             e.printStackTrace();
         }
     }
-    public PostagemTrabalhoVerticalAdapter imprimirDados(List<Trabalho> trabalhos, RecyclerView recyclerPostagem, Context context, String alternativaTrabalho, String categoriaTrabalho) {
+    public PostagemTrabalhoVerticalAdapter imprimirDados(List<Trabalho> trabalhos, RecyclerView recyclerPostagem, String alternativaTrabalho, String categoriaTrabalho) {
         PostagemTrabalhoVerticalAdapter adapter1 = null;
         try {
             StringRequest stringRequest = new StringRequest(Request.Method.POST, LIST_URL,
@@ -118,7 +118,7 @@ public class VagaDAO {
                                             jsonObject.getString("empresa_nome"),
                                             cidade));
                                 }
-                                PostagemTrabalhoVerticalAdapter adapter1 = new PostagemTrabalhoVerticalAdapter(trabalhos, context);
+                                PostagemTrabalhoVerticalAdapter adapter1 = new PostagemTrabalhoVerticalAdapter(trabalhos, mContext);
                                 recyclerPostagem.setAdapter(adapter1);
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -143,7 +143,7 @@ public class VagaDAO {
                     return params;
                 }
             };
-            RequestQueue requestQueue = Volley.newRequestQueue(context);
+            RequestQueue requestQueue = Volley.newRequestQueue(mContext);
             requestQueue.add(stringRequest);
             return adapter1;
         } catch (Exception e) {

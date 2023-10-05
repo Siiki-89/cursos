@@ -47,7 +47,7 @@ public class TrabalhoFragment extends Fragment {
         VagaDAO vagaDAO = new VagaDAO(getContext());
         prepararRecyclerPostagem(recyclerView);
 
-        PostagemTrabalhoVerticalAdapter adapter = vagaDAO.imprimirDados(trabalhos, recyclerView, getContext(), "1", "");
+        PostagemTrabalhoVerticalAdapter adapter = vagaDAO.imprimirDados(trabalhos, recyclerView, "1", "");
         recyclerView.setAdapter(adapter);
     }
 
