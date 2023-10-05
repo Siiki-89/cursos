@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/menu_curso">
+
+    <fragment
+        android:id="@+id/menu_curso"
+        android:name="com.example.cursoetrabalho.fragments.CursoFragment"
+        android:label="fragment_curso"
+        tools:layout="@layout/fragment_curso" />
+
+    <fragment
+        android:id="@+id/menu_trabalho"
+        android:name="com.example.cursoetrabalho.fragments.TrabalhoFragment"
+        android:label="fragment_trabalho"
+        tools:layout="@layout/fragment_trabalho" />
+</navigation>

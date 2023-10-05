@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/sair"
+        android:icon="@drawable/icon_sair"
+        android:title="Sair"
+        app:showAsAction="ifRoom" />
+    <item android:id="@+id/categoria"
+        android:title="Categorias" />
+    <item android:id="@+id/addcurso"
+        android:title="Adicionar curso" />
+    <item android:id="@+id/addvaga"
+        android:title="Adicionar vaga" />
+    <item android:id="@+id/addempresa"
+        android:title="Adicionar empresa" />
+
+
+</menu>

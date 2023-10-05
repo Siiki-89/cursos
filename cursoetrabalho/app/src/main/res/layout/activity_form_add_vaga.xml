@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activity.form_add_vaga">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtNomeEmpresa"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="33dp"
+            android:layout_marginTop="34dp"
+            android:layout_marginEnd="33dp"
+            android:hint="Nome da empresa"
+            android:textColorHint="#000000"
+            app:boxBackgroundMode="outline"
+            app:hintTextColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:startIconTint="#0077B6">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtNomeEmpresaCampo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtCargo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="33dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="33dp"
+            android:hint="Cargo da vaga"
+            android:textColorHint="#000000"
+            app:boxBackgroundMode="outline"
+            app:hintTextColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtNomeEmpresa">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtCargoCampo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtDataInicial"
+            android:layout_width="136dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            android:hint="Data inicial"
+            android:textColorHint="#000000"
+            app:boxBackgroundMode="outline"
+            app:hintTextColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.13"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtCargo">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtDataInicialCampo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtDataFinal"
+            android:layout_width="136dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            android:hint="Data final"
+            android:textColorHint="#000000"
+            app:boxBackgroundMode="outline"
+            app:hintTextColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.64"
+            app:layout_constraintStart_toEndOf="@+id/txtDataInicial"
+            app:layout_constraintTop_toBottomOf="@+id/txtCargo">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtDataFinalCampo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Spinner
+            android:id="@+id/spinnerCategoriaVaga"
+            style="@android:style/Widget.Material.Spinner.Underlined"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="33dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="33dp"
+            android:spinnerMode="dropdown"
+            android:textAlignment="viewStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtDataInicial" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="33dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="33dp"
+            android:text="Descrição da vaga"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerCategoriaVaga" />
+
+        <EditText
+            android:id="@+id/txtDescVaga"
+            android:layout_width="348dp"
+            android:layout_height="136dp"
+            android:layout_marginStart="33dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="33dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtQtdVaga3"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="33dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="33dp"
+            android:hint="Quantidade de vagas"
+            android:textColorHint="#000000"
+            app:boxBackgroundMode="outline"
+            app:hintTextColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtDescVaga">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtQtdVagaCampo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnFinalizar"
+            android:layout_width="167dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/config_button"
+            android:text="Finalizar cadastro"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtQtdVaga3" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+
+
