@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.MaskFilter;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -29,6 +30,7 @@ import com.example.cursoetrabalho.DAO.CursoDAO;
 import com.example.cursoetrabalho.DTO.CursoDTO;
 
 import com.example.cursoetrabalho.R;
+import com.example.cursoetrabalho.consultor.Mascaras;
 import com.example.cursoetrabalho.model.Postagem;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -75,7 +77,7 @@ public class form_add_curso extends AppCompatActivity implements AdapterView.OnI
         cursoModalidadeButton = findViewById(R.id.RGroup);
 
         btnEnviar = findViewById(R.id.btnFinalizar);
-
+        cursoQtdHoras.addTextChangedListener(new Mascaras(cursoQtdHoras));
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
