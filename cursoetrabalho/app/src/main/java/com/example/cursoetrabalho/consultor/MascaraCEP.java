@@ -1,5 +1,6 @@
 package com.example.cursoetrabalho.consultor;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -23,11 +24,15 @@ public class MascaraCEP implements TextWatcher {
     private TextInputEditText empresaUF;
     private TextInputEditText empresaCidade;
     private TextInputEditText empresaEndereco;
+    private boolean isUpdating;
+
     public MascaraCEP(EditText editText, TextInputEditText empresaUF, TextInputEditText empresaCidade, TextInputEditText empresaEndereco) {
         this.editText = editText;
         this.empresaUF = empresaUF;
         this.empresaCidade = empresaCidade;
         this.empresaEndereco = empresaEndereco;
+        isUpdating = false;
+        this.editText.addTextChangedListener(this);
     }
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -36,12 +41,28 @@ public class MascaraCEP implements TextWatcher {
 
     @Override
     public void onTextChanged(CharSequence s, int start, int before, int count) {
+        buscarCEP();
     }
 
     @Override
     public void afterTextChanged(Editable s) {
-        buscarCEP();
+
+        if (isUpdating) {
+            isUpdating = false;
+            return;
+        }
+
+        String cep = s.toString();
+        String cepWithoutHyphen = cep.replaceAll("-", "");
+
+        if (cepWithoutHyphen.length() > 5) {
+            cep = cepWithoutHyphen.substring(0, 5) + "-" + cepWithoutHyphen.substring(5);
+            isUpdating = true;
+            editText.setText(cep);
+            editText.setSelection(cep.length());
+        }
     }
+
     public void buscarCEP() {
         String cep = editText.getText().toString();
         if (!cep.isEmpty()) {

@@ -5,19 +5,16 @@ import android.text.TextWatcher;
 import android.widget.EditText;
 
 public class MascaraCNPJ implements TextWatcher {
-    private static final String CNPJ_MASK = "##.###.###/####-##";
-    private boolean isUpdating = false;
-    private String oldText = "";
-
     private EditText editText;
+    private boolean isUpdating = false;
 
     public MascaraCNPJ(EditText editText) {
         this.editText = editText;
+        this.editText.addTextChangedListener(this);
     }
 
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
     }
 
     @Override
@@ -27,51 +24,29 @@ public class MascaraCNPJ implements TextWatcher {
     @Override
     public void afterTextChanged(Editable s) {
         if (isUpdating) {
-            isUpdating = false;
             return;
         }
 
-        String newText = s.toString();
-        String unmaskedText = newText.replaceAll("[^\\d]", "");
-
-        if (unmaskedText.length() > 14) {
-            unmaskedText = unmaskedText.substring(0, 14);
-        }
-
-        int lengthDiff = unmaskedText.length() - oldText.length();
-
-        if (lengthDiff > 0) {
-            if (unmaskedText.length() == 2 || unmaskedText.length() == 5) {
-                unmaskedText += ".";
-            } else if (unmaskedText.length() == 8) {
-                unmaskedText += "/";
-            } else if (unmaskedText.length() == 12) {
-                unmaskedText += "-";
-            }
-        }
+        String input = s.toString().replaceAll("[^\\d]", "");
+        String formatted = formatCNPJ(input);
 
         isUpdating = true;
-        s.replace(0, s.length(), formatCNPJ(unmaskedText));
-        oldText = unmaskedText;
+        editText.setText(formatted);
+        editText.setSelection(formatted.length());
+        isUpdating = false;
     }
 
-    private String formatCNPJ(String text) {
-        StringBuilder maskedText = new StringBuilder();
-        int index = 0;
-
-        for (int i = 0; i < CNPJ_MASK.length(); i++) {
-            char placeholder = CNPJ_MASK.charAt(i);
-
-            if (placeholder == '#') {
-                if (index < text.length()) {
-                    maskedText.append(text.charAt(index));
-                    index++;
-                }
-            } else {
-                maskedText.append(placeholder);
-            }
+    private String formatCNPJ(String input) {
+        if (input.length() <= 2) {
+            return input;
+        } else if (input.length() <= 5) {
+            return input.substring(0, 2) + "." + input.substring(2);
+        } else if (input.length() <= 8) {
+            return input.substring(0, 2) + "." + input.substring(2, 5) + "." + input.substring(5);
+        } else if (input.length() <= 12) {
+            return input.substring(0, 2) + "." + input.substring(2, 5) + "." + input.substring(5, 8) + "/" + input.substring(8);
+        } else {
+            return input.substring(0, 2) + "." + input.substring(2, 5) + "." + input.substring(5, 8) + "/" + input.substring(8, 12) + "-" + input.substring(12);
         }
-
-        return maskedText.toString();
     }
 }

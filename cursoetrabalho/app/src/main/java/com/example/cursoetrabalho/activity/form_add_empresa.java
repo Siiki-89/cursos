@@ -1,36 +1,18 @@
 package com.example.cursoetrabalho.activity;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.cursoetrabalho.DAO.EmpresaDAO;
 import com.example.cursoetrabalho.DTO.EmpresaDTO;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 
 import com.example.cursoetrabalho.R;
 import com.example.cursoetrabalho.consultor.MascaraCEP;
 import com.example.cursoetrabalho.consultor.MascaraCNPJ;
-import com.example.cursoetrabalho.consultor.MascaraData;
 import com.google.android.material.textfield.TextInputEditText;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class form_add_empresa extends AppCompatActivity {
 
@@ -55,8 +37,8 @@ public class form_add_empresa extends AppCompatActivity {
         empresaEmail = findViewById(R.id.txtEmailCampo);
         empresaTelefone = findViewById(R.id.txtTelefoneCampo);
 
-        empresaCNPJ.addTextChangedListener(new MascaraCNPJ(empresaCNPJ));
-        empresaCEP.addTextChangedListener(new MascaraCEP(empresaCEP, empresaUF, empresaCidade, empresaEndereco));
+        new MascaraCNPJ(empresaCNPJ);
+        new MascaraCEP(empresaCEP, empresaUF, empresaCidade, empresaEndereco);
 
         btnFinalizar = findViewById(R.id.btnFinalizar);
 

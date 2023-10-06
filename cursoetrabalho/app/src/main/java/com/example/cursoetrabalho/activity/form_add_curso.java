@@ -16,7 +16,7 @@ import com.example.cursoetrabalho.DAO.CursoDAO;
 import com.example.cursoetrabalho.DTO.CursoDTO;
 
 import com.example.cursoetrabalho.R;
-import com.example.cursoetrabalho.consultor.MascaraData;
+import com.example.cursoetrabalho.consultor.MascaraHrs;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class form_add_curso extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -57,7 +57,7 @@ public class form_add_curso extends AppCompatActivity implements AdapterView.OnI
         cursoModalidadeButton = findViewById(R.id.RGroup);
 
         btnEnviar = findViewById(R.id.btnFinalizar);
-        cursoQtdHoras.addTextChangedListener(new MascaraData(cursoQtdHoras));
+        new MascaraHrs(this, cursoQtdHoras);
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

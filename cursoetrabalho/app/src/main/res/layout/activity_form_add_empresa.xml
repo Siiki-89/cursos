@@ -80,6 +80,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtEmailCampo"
                 android:layout_width="match_parent"
+                android:maxLength="55"
                 android:layout_height="wrap_content"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -104,6 +105,7 @@
                 android:id="@+id/txtCEPCampo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:maxLength="9"
                 android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -150,6 +152,7 @@
                 android:id="@+id/txtUFCampo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:maxLength="2"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -173,6 +176,7 @@
                 android:id="@+id/txtCidadeCampo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:maxLength="55"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -196,6 +200,7 @@
                 android:id="@+id/txtTelefoneCampo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:maxLength="15"
                 android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
