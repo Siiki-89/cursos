@@ -29,7 +29,7 @@ import java.util.Map;
 
 public class VagaDAO {
     private Context mContext;
-    private static final String BASE_URL = "http://192.168.165.131/";
+    private static final String BASE_URL = "http://192.168.1.9/";
     private static final String INSERT_URL = BASE_URL + "/conexao/cadastroVaga.php";
     private static final String LIST_URL = BASE_URL + "/conexao/listarVaga.php";
 

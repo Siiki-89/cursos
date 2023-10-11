@@ -144,6 +144,19 @@
 
         </RadioGroup>
 
+        <Button
+            android:id="@+id/btnLogo"
+            android:layout_width="95dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/config_button"
+            android:text="Selecionar"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.242"
+            app:layout_constraintStart_toEndOf="@+id/RGroup"
+            app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
         <TextView
             android:id="@+id/textView14"
             android:layout_width="wrap_content"
@@ -154,22 +167,9 @@
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.992"
+            app:layout_constraintHorizontal_bias="0.08"
             app:layout_constraintStart_toEndOf="@+id/textView11"
             app:layout_constraintTop_toBottomOf="@+id/txtDescCurso" />
-
-        <Button
-            android:id="@+id/btnLogo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="17dp"
-            android:background="@drawable/config_button"
-            android:text="Enviar"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.755"
-            app:layout_constraintStart_toEndOf="@+id/RGroup"
-            app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtUrlFornecedor"
@@ -229,6 +229,17 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtQtdHoras" />
+
+        <ImageView
+            android:id="@+id/imgCurso"
+            android:layout_width="105dp"
+            android:layout_height="84dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.512"
+            app:layout_constraintStart_toEndOf="@+id/btnLogo"
+            app:layout_constraintTop_toBottomOf="@+id/txtDescCurso"
+            app:srcCompat="@drawable/ic_launcher_foreground" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

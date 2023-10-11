@@ -12,6 +12,7 @@ import android.widget.Button;
 import com.example.cursoetrabalho.R;
 import com.example.cursoetrabalho.consultor.MascaraCEP;
 import com.example.cursoetrabalho.consultor.MascaraCNPJ;
+import com.example.cursoetrabalho.consultor.MascaraTelefone;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class form_add_empresa extends AppCompatActivity {
@@ -38,6 +39,7 @@ public class form_add_empresa extends AppCompatActivity {
         empresaTelefone = findViewById(R.id.txtTelefoneCampo);
 
         new MascaraCNPJ(empresaCNPJ);
+        new MascaraTelefone(empresaTelefone);
         new MascaraCEP(empresaCEP, empresaUF, empresaCidade, empresaEndereco);
 
         btnFinalizar = findViewById(R.id.btnFinalizar);

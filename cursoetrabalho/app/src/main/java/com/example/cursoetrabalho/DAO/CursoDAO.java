@@ -1,10 +1,12 @@
 package com.example.cursoetrabalho.DAO;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.AuthFailureError;
@@ -12,6 +14,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.cursoetrabalho.DTO.CursoDTO;
@@ -30,9 +33,10 @@ import java.util.Map;
 
 public class CursoDAO {
     private Context mContext;
-    private static final String BASE_URL = "http://192.168.165.131/";
+    private static final String BASE_URL = "http://10.3.17.98";
     private static final String INSERT_URL = BASE_URL + "/conexao/cadastroCurso.php";
     private static final String LIST_URL = BASE_URL + "/conexao/listarCurso.php";
+    private static final String INSERT_IMG = BASE_URL + "/conexao/inserirIMG.php";
 
     public CursoDAO() {
     }
@@ -63,6 +67,7 @@ public class CursoDAO {
                     public void onResponse(String response) {
                         Log.d("res", response);
                         if ("sucesso".equals(response.trim())) {
+                            enviarIMG(cursoDTO.getImgLogo(), cursoNome);
                             Toast.makeText(mContext, "Registro concluido!", Toast.LENGTH_SHORT).show();
                         } else if ("erro".equals(response.trim())) {
                             Toast.makeText(mContext, "Erro ao inserir registro:", Toast.LENGTH_SHORT).show();
@@ -251,6 +256,32 @@ public class CursoDAO {
                 Map<String, String> params = new HashMap<>();
                 params.put("alternativaCurso", alternativaCurso);
                 params.put("nomeCurso", nomeCurso);
+                return params;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(mContext);
+        requestQueue.add(stringRequest);
+    }
+    private void enviarIMG(String imageData, String nome){
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, INSERT_IMG, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Toast.makeText(mContext, response, Toast.LENGTH_SHORT).show();
+                Log.d("certo", response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(mContext, "error: " + error.toString(), Toast.LENGTH_SHORT).show();
+                Log.d("errado", error.toString());
+            }
+        }){
+            @Nullable
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("nome", imageData);
+                params.put("tipo", nome);
                 return params;
             }
         };

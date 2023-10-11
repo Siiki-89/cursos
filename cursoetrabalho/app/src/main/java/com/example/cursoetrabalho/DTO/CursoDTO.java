@@ -1,5 +1,7 @@
 package com.example.cursoetrabalho.DTO;
 
+import android.widget.ImageView;
+
 import androidx.annotation.NonNull;
 
 public class CursoDTO {
@@ -18,6 +20,7 @@ public class CursoDTO {
     public String cursoUrl;
     public String cursoQtdGostei;
     public String cursoQtdVisualizacao;
+    private String imgLogo;
 
     public CursoDTO() {
     }
@@ -34,7 +37,7 @@ public class CursoDTO {
         this.cursoQtdVisualizacao = cursoQtdVisualizacao;
     }
 
-    public CursoDTO(String cursoCategoria, String cursoNome, String cursoFornecedor, String cursoQtdHoras, String cursoDescricao, String cursoPresencial, String cursoUrl) {
+    public CursoDTO(String cursoCategoria, String cursoNome, String cursoFornecedor, String cursoQtdHoras, String cursoDescricao, String cursoPresencial, String cursoUrl, String imgLogo) {
         this.cursoCategoria = cursoCategoria;
         this.cursoNome = cursoNome;
         this.cursoFornecedor = cursoFornecedor;
@@ -42,6 +45,15 @@ public class CursoDTO {
         this.cursoDescricao = cursoDescricao;
         this.cursoPresencial = cursoPresencial;
         this.cursoUrl = cursoUrl;
+        this.imgLogo = imgLogo;
+    }
+
+    public String getImgLogo() {
+        return imgLogo;
+    }
+
+    public void setImgLogo(String imgLogo) {
+        this.imgLogo = imgLogo;
     }
 
     public String getCursoCategoria() {

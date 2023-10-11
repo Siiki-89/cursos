@@ -25,6 +25,7 @@ import com.example.cursoetrabalho.DAO.VagaDAO;
 import com.example.cursoetrabalho.DTO.VagaDTO;
 
 import com.example.cursoetrabalho.R;
+import com.example.cursoetrabalho.consultor.MascaraData;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.HashMap;
@@ -67,7 +68,8 @@ public class form_add_vaga extends AppCompatActivity implements AdapterView.OnIt
         vagaDataFinal = findViewById(R.id.txtDataFinalCampo);
         vagaDesc = findViewById(R.id.txtDescVaga);
 
-
+        new MascaraData(vagaDataInicial);
+        new MascaraData(vagaDataFinal);
         btnInsrir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
