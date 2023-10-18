@@ -14,6 +14,7 @@ import com.example.cursoetrabalho.DAO.CursoDAO;
 import com.example.cursoetrabalho.R;
 import com.example.cursoetrabalho.activity.form_view_curso;
 import com.example.cursoetrabalho.model.Postagem;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -40,14 +41,13 @@ public class PostagemCursoHorizontalAdapter extends RecyclerView.Adapter<Postage
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        CursoDAO cursoDAO = new CursoDAO();
         Postagem postagem = postagens.get(position);
         holder.txtNomeCurso.setText(postagem.getTxtNomeCurso());
         holder.txtFornecedor.setText(postagem.getTxtFornecedor());
         holder.txtQtdVisualizacao.setText(postagem.getTxtQtdVisualizacao());
         holder.txtQtdGostei.setText(postagem.getTxtQtdGostei());
         try {
-            cursoDAO.loadImageFromServer("Curso", "xablau", holder.imgCurso);
+            Picasso.get().load(postagem.getImgCurso()).into(holder.imgCurso);
         } catch (Exception e){
 
         }

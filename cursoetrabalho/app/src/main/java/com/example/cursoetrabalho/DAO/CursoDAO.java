@@ -95,7 +95,8 @@ public class CursoDAO {
                         data.put("cursoPresencial", cursoPresencial);
                         data.put("cursoQtdHrs", cursoQtdHoras);
                         data.put("cursoImg", cursoImg);
-                        data.put("cursoNomeIMG", cursoNome);
+                        data.put("cursoNomeIMG", cursoNome.trim().replaceAll("\\s+", " "));
+                        data.put("URL", BASE_URL);
                         return data;
                     }
                 };
@@ -107,36 +108,6 @@ public class CursoDAO {
         } catch (Exception e){
 
         }
-    }
-    public void loadImageFromServer(String pasta, String nomeImg, ImageView imageView) {
-        Log.d("Pasta", pasta);
-        Log.d("nomeIMG", nomeImg);
-
-        String url = IMAGE_VIEW + "?pastaIMG=" + pasta + "&nomeIMG=" + nomeImg + ".jpeg";
-
-        ImageRequest imageRequest = new ImageRequest(
-                url,
-                new Response.Listener<Bitmap>() {
-                    @Override
-                    public void onResponse(Bitmap response) {
-                        imageView.setImageBitmap(response); // Define a imagem na ImageView
-                        Log.d("resposta", "Imagem carregada com sucesso.");
-                    }
-                },
-                0,
-                0,
-                null,
-                null,
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.e("Erro de requisição", "Erro ao carregar a imagem: " + error.getMessage());
-                    }
-                }
-        );
-
-        RequestQueue requestQueue = Volley.newRequestQueue(mContext);
-        requestQueue.add(imageRequest);
     }
 
     public PostagemCursoHorizontalAdapter imprimirDado(List<Postagem> postagens, RecyclerView recyclerPostagem, String alternativaCurso, String categoriaCurso){
