@@ -1,25 +1,29 @@
 package com.example.cursoetrabalho.model;
 
+import android.widget.ImageView;
+
 public class Postagem {
 
     private String txtNomeCurso, txtFornecedor, txtQtdVisualizacao, txtQtdGostei, txtIsPresencial;
-    private int imgCurso;
+    private String imgCurso;
 
-    public Postagem(String txtNomeCurso, String txtFornecedor, String txtQtdVisualizacao, String txtQtdGostei) {
+    public Postagem(String txtNomeCurso, String txtFornecedor, String txtQtdVisualizacao, String txtQtdGostei, String imgCurso) {
 
         this.txtNomeCurso = txtNomeCurso;
         this.txtFornecedor = txtFornecedor;
         this.txtQtdVisualizacao = txtQtdVisualizacao;
         this.txtQtdGostei = txtQtdGostei;
+        this.imgCurso = imgCurso;
 
     }
 
-    public Postagem(String txtNomeCurso, String txtFornecedor, String txtQtdVisualizacao, String txtQtdGostei, String txtIsPresencial) {
+    public Postagem(String txtNomeCurso, String txtFornecedor, String txtQtdVisualizacao, String txtQtdGostei, String txtIsPresencial, String imgCurso) {
         this.txtNomeCurso = txtNomeCurso;
         this.txtFornecedor = txtFornecedor;
         this.txtQtdVisualizacao = txtQtdVisualizacao;
         this.txtQtdGostei = txtQtdGostei;
         this.txtIsPresencial = txtIsPresencial;
+        this.imgCurso = imgCurso;
     }
 
     public Postagem() {
@@ -65,11 +69,11 @@ public class Postagem {
         this.txtQtdGostei = txtQtdGostei;
     }
 
-    public int getImgCurso() {
+    public String getImgCurso() {
         return imgCurso;
     }
 
-    public void setImgCurso(int imgCurso) {
+    public void setImgCurso(String imgCurso) {
         this.imgCurso = imgCurso;
     }
 

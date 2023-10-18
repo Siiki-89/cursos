@@ -3,6 +3,7 @@ package com.example.cursoetrabalho.DAO;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,10 +34,10 @@ import java.util.Map;
 
 public class CursoDAO {
     private Context mContext;
-    private static final String BASE_URL = "http://10.3.17.98";
+    private static final String BASE_URL = "http://10.3.16.112";
     private static final String INSERT_URL = BASE_URL + "/conexao/cadastroCurso.php";
     private static final String LIST_URL = BASE_URL + "/conexao/listarCurso.php";
-    private static final String INSERT_IMG = BASE_URL + "/conexao/inserirIMG.php";
+    private static final String IMAGE_VIEW = BASE_URL + "/conexao/resultaIMG.php";
 
     public CursoDAO() {
     }
@@ -51,7 +52,6 @@ public class CursoDAO {
     public void inserirDado (CursoDTO cursoDTO) {
 
         try{
-
             String cursoCategoria = cursoDTO.getCursoCategoria() ;
             String cursoNome = cursoDTO.getCursoNome();
             String cursoFornecedor = cursoDTO.getCursoFornecedor();
@@ -59,6 +59,7 @@ public class CursoDAO {
             String cursoDescricao = cursoDTO.getCursoDescricao();
             String cursoPresencial = cursoDTO.getCursoPresencial();
             String cursoUrl = cursoDTO.getCursoUrl();
+            String cursoImg = cursoDTO.getImgLogo();
 
             if (!cursoCategoria.isEmpty() && !cursoNome.isEmpty() && !cursoFornecedor.isEmpty() &&
                     !cursoQtdHoras.isEmpty() && !cursoDescricao.isEmpty() && !cursoUrl.isEmpty() && !cursoPresencial.isEmpty()) {
@@ -67,7 +68,6 @@ public class CursoDAO {
                     public void onResponse(String response) {
                         Log.d("res", response);
                         if ("sucesso".equals(response.trim())) {
-                            enviarIMG(cursoDTO.getImgLogo(), cursoNome);
                             Toast.makeText(mContext, "Registro concluido!", Toast.LENGTH_SHORT).show();
                         } else if ("erro".equals(response.trim())) {
                             Toast.makeText(mContext, "Erro ao inserir registro:", Toast.LENGTH_SHORT).show();
@@ -94,7 +94,8 @@ public class CursoDAO {
                         data.put("cursoUrl", cursoUrl);
                         data.put("cursoPresencial", cursoPresencial);
                         data.put("cursoQtdHrs", cursoQtdHoras);
-
+                        data.put("cursoImg", cursoImg);
+                        data.put("cursoNomeIMG", cursoNome);
                         return data;
                     }
                 };
@@ -107,7 +108,36 @@ public class CursoDAO {
 
         }
     }
+    public void loadImageFromServer(String pasta, String nomeImg, ImageView imageView) {
+        Log.d("Pasta", pasta);
+        Log.d("nomeIMG", nomeImg);
 
+        String url = IMAGE_VIEW + "?pastaIMG=" + pasta + "&nomeIMG=" + nomeImg + ".jpeg";
+
+        ImageRequest imageRequest = new ImageRequest(
+                url,
+                new Response.Listener<Bitmap>() {
+                    @Override
+                    public void onResponse(Bitmap response) {
+                        imageView.setImageBitmap(response); // Define a imagem na ImageView
+                        Log.d("resposta", "Imagem carregada com sucesso.");
+                    }
+                },
+                0,
+                0,
+                null,
+                null,
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e("Erro de requisição", "Erro ao carregar a imagem: " + error.getMessage());
+                    }
+                }
+        );
+
+        RequestQueue requestQueue = Volley.newRequestQueue(mContext);
+        requestQueue.add(imageRequest);
+    }
 
     public PostagemCursoHorizontalAdapter imprimirDado(List<Postagem> postagens, RecyclerView recyclerPostagem, String alternativaCurso, String categoriaCurso){
         PostagemCursoHorizontalAdapter adapter = null;
@@ -124,7 +154,8 @@ public class CursoDAO {
                                         jsonObject.getString("curso_nome"),
                                         jsonObject.getString("curso_fornecedor"),
                                         jsonObject.getString("curso_visualizacao"),
-                                        jsonObject.getString("curso_gostei")));
+                                        jsonObject.getString("curso_gostei"),
+                                        jsonObject.getString("curso_img")));
                             }
                             PostagemCursoHorizontalAdapter adapter = new PostagemCursoHorizontalAdapter(mContext ,postagens);
                             recyclerPostagem.setAdapter(adapter);
@@ -256,32 +287,6 @@ public class CursoDAO {
                 Map<String, String> params = new HashMap<>();
                 params.put("alternativaCurso", alternativaCurso);
                 params.put("nomeCurso", nomeCurso);
-                return params;
-            }
-        };
-        RequestQueue requestQueue = Volley.newRequestQueue(mContext);
-        requestQueue.add(stringRequest);
-    }
-    private void enviarIMG(String imageData, String nome){
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, INSERT_IMG, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Toast.makeText(mContext, response, Toast.LENGTH_SHORT).show();
-                Log.d("certo", response);
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(mContext, "error: " + error.toString(), Toast.LENGTH_SHORT).show();
-                Log.d("errado", error.toString());
-            }
-        }){
-            @Nullable
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<>();
-                params.put("nome", imageData);
-                params.put("tipo", nome);
                 return params;
             }
         };

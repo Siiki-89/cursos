@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -46,7 +47,6 @@ public class form_add_curso extends AppCompatActivity implements AdapterView.OnI
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_add_curso);
-
         CursoDTO cursoDTO = new CursoDTO();
         cursoDAO = new CursoDAO(this);
 
@@ -91,6 +91,7 @@ public class form_add_curso extends AppCompatActivity implements AdapterView.OnI
 
                 }
                 String img = imageToString(bitmap);
+                Log.d("img", img);
                 cursoCategoria = spinnerCategoriaCurso.getSelectedItem().toString();
                 cursoDTORegistro = new CursoDTO (cursoCategoria, cursoNome.getText().toString().trim(), cursoFornecedor.getText().toString().trim()
                 , cursoQtdHoras.getText().toString().trim(), cursoDescricao.getText().toString().trim()

@@ -5,10 +5,12 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.cursoetrabalho.DAO.CursoDAO;
 import com.example.cursoetrabalho.R;
 import com.example.cursoetrabalho.activity.form_view_curso;
 import com.example.cursoetrabalho.model.Postagem;
@@ -38,11 +40,18 @@ public class PostagemCursoHorizontalAdapter extends RecyclerView.Adapter<Postage
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        CursoDAO cursoDAO = new CursoDAO();
         Postagem postagem = postagens.get(position);
         holder.txtNomeCurso.setText(postagem.getTxtNomeCurso());
         holder.txtFornecedor.setText(postagem.getTxtFornecedor());
         holder.txtQtdVisualizacao.setText(postagem.getTxtQtdVisualizacao());
         holder.txtQtdGostei.setText(postagem.getTxtQtdGostei());
+        try {
+            cursoDAO.loadImageFromServer("Curso", "xablau", holder.imgCurso);
+        } catch (Exception e){
+
+        }
+
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +71,7 @@ public class PostagemCursoHorizontalAdapter extends RecyclerView.Adapter<Postage
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
         TextView txtNomeCurso, txtFornecedor, txtQtdVisualizacao, txtQtdGostei;
+        ImageView imgCurso;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -69,6 +79,7 @@ public class PostagemCursoHorizontalAdapter extends RecyclerView.Adapter<Postage
             txtFornecedor = itemView.findViewById(R.id.txtFornecedor);
             txtQtdVisualizacao = itemView.findViewById(R.id.txtQtdVisualizacao);
             txtQtdGostei = itemView.findViewById(R.id.txtQtdGostei);
+            imgCurso = itemView.findViewById(R.id.imgCurso);
         }
     }
 
