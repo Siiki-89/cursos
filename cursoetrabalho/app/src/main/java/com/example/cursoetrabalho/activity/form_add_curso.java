@@ -68,7 +68,7 @@ public class form_add_curso extends AppCompatActivity implements AdapterView.OnI
         cursoQtdHoras = findViewById(R.id.txtQtdHorasCampo);
         cursoDescricao = findViewById(R.id.txtDescCurso);
         cursoModalidadeButton = findViewById(R.id.RGroup);
-        imgCurso = findViewById(R.id.imgCurso);
+        imgCurso = findViewById(R.id.imgCurso4);
 
         btnEnviar = findViewById(R.id.btnFinalizar);
         btnLogo = findViewById(R.id.btnLogo);

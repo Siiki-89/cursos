@@ -27,31 +27,36 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import com.example.cursoetrabalho.adapter.CategoriaAdapter;
+import com.example.cursoetrabalho.adapter.PostagemCursoHorizontalAdapter;
+
 public class CursoFragment extends Fragment {
+    private RecyclerView recyclerPostagem;
+    private RecyclerView recyclerPostagem1;
+    private RecyclerView recyclerPostagem2;
+    private RecyclerView recyclerPostagem3;
+    private RecyclerView recyclerCategoria;
+    private TextView txtAleatorio1;
+    private TextView txtAleatorio2;
+    private TextView txtAleatorio3;
+    private TextView txtVerTudo;
 
-    public List<Postagem> postagens = new ArrayList<>();
-
+    private List<Postagem> postagens = new ArrayList<>();
     private List<Categoria> categorias = new ArrayList<>();
-    private RecyclerView recyclerPostagem, recyclerPostagem1, recyclerCategoria, recyclerPostagem2, recyclerPostagem3;
-    private int contador=0;
-    private CursoDTO cursoDTO;
     private CursoDAO cursoDAO;
-    private TextView txtAleatorio1, txtAleatorio2, txtAleatorio3, txtVerTudo;
+    private CursoDTO cursoDTO;
+    private int contador = 0;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_curso, container, false);
-
-
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        if(contador==0) {
+        if (contador == 0) {
             prepararCategorias();
             contador++;
         }
@@ -69,19 +74,52 @@ public class CursoFragment extends Fragment {
         txtAleatorio3 = view.findViewById(R.id.txtAleatorio3);
         txtVerTudo = view.findViewById(R.id.txtVerTudo);
 
-        prepararRecyclerPostagem(recyclerPostagem);
-        prepararRecyclerPostagem(recyclerPostagem1);
-        prepararRecyclerPostagem(recyclerPostagem2);
-        prepararRecyclerPostagem(recyclerPostagem3);
-        prepararRecyclerCategoria(recyclerCategoria);
+        configurarRecyclerPostagem(recyclerPostagem);
+        configurarRecyclerPostagem(recyclerPostagem1);
+        configurarRecyclerPostagem(recyclerPostagem2);
+        configurarRecyclerPostagem(recyclerPostagem3);
+        configurarRecyclerCategoria(recyclerCategoria);
 
+        carregarDados(); // Função para carregar os dados nas recycler views
 
-        //EM ALTA
+        txtVerTudo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                abrirCursoCat();
+            }
+        });
+    }
+
+    private void configurarRecyclerPostagem(RecyclerView recyclerView) {
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        recyclerView.setHasFixedSize(true);
+    }
+
+    private void configurarRecyclerCategoria(RecyclerView recyclerView) {
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2, GridLayoutManager.HORIZONTAL, false));
+    }
+
+    private void prepararCategorias() {
+        cursoDTO = new CursoDTO();
+        Categoria categoria;
+        for (String categoriaNome : cursoDTO.categorias) {
+            categoria = new Categoria(categoriaNome);
+            categorias.add(categoria);
+        }
+    }
+
+    private void abrirCursoCat() {
+        Intent intent = new Intent(getContext(), form_categoria_curso.class);
+        startActivity(intent);
+    }
+
+    private void carregarDados() {
+        // EM ALTA
         PostagemCursoHorizontalAdapter adapterAlta = cursoDAO.imprimirDado(postagens, recyclerPostagem, "1", "");
         recyclerPostagem.setAdapter(adapterAlta);
         postagens.clear();
 
-        //NUMERO ALEATORIO
+        // NÚMERO ALEATÓRIO
         List<Integer> indicesAleatorios = new ArrayList<>();
         Random random = new Random();
 
@@ -92,63 +130,25 @@ public class CursoFragment extends Fragment {
                 indicesAleatorios.add(indiceAleatorio);
             }
         }
+        // CATEGORIA
+        CategoriaAdapter categoriaAdapter = new CategoriaAdapter( categorias, getContext());
+        recyclerCategoria.setAdapter(categoriaAdapter);
 
-        // Os números aleatórios estão em 'numerosAleatorios'
-
-        //ALEATORIO1
-
-        PostagemCursoHorizontalAdapter adapterAleatorio1 =cursoDAO.imprimirDado(postagens, recyclerPostagem1, "2", cursoDTO.categorias[indicesAleatorios.get(0)]);
+        // ALEATÓRIO 1
+        PostagemCursoHorizontalAdapter adapterAleatorio1 = cursoDAO.imprimirDado(postagens, recyclerPostagem1, "2", cursoDTO.categorias[indicesAleatorios.get(0)]);
         recyclerPostagem1.setAdapter(adapterAleatorio1);
         txtAleatorio1.setText(cursoDTO.categorias[indicesAleatorios.get(0)]);
         postagens.clear();
 
-        //ALEATORIO2
-
-        PostagemCursoHorizontalAdapter adapterAleatorio2 =cursoDAO.imprimirDado(postagens, recyclerPostagem2, "2", cursoDTO.categorias[indicesAleatorios.get(1)]);
+        // ALEATÓRIO 2
+        PostagemCursoHorizontalAdapter adapterAleatorio2 = cursoDAO.imprimirDado(postagens, recyclerPostagem2, "2", cursoDTO.categorias[indicesAleatorios.get(1)]);
         recyclerPostagem2.setAdapter(adapterAleatorio2);
         txtAleatorio2.setText(cursoDTO.categorias[indicesAleatorios.get(1)]);
         postagens.clear();
 
-        //ALEATORIO3
-
-        PostagemCursoHorizontalAdapter adapterAleatorio3 =cursoDAO.imprimirDado(postagens, recyclerPostagem3, "2", cursoDTO.categorias[indicesAleatorios.get(2)]);
+        // ALEATÓRIO 3
+        PostagemCursoHorizontalAdapter adapterAleatorio3 = cursoDAO.imprimirDado(postagens, recyclerPostagem3, "2", cursoDTO.categorias[indicesAleatorios.get(2)]);
         recyclerPostagem3.setAdapter(adapterAleatorio3);
         txtAleatorio3.setText(cursoDTO.categorias[indicesAleatorios.get(2)]);
-
-        //LISTAR CATEGORIA
-        CategoriaAdapter categoriaAdapter = new CategoriaAdapter( categorias, getContext());
-        recyclerCategoria.setAdapter(categoriaAdapter);
-
-        txtVerTudo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                abrirCursoCat();
-            }
-        });
-
     }
-
-    public void prepararRecyclerPostagem(RecyclerView recyclerView){
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-        recyclerPostagem.setHasFixedSize(true);
-    }
-    public void prepararRecyclerCategoria(RecyclerView recyclerView){
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),
-                2, GridLayoutManager.HORIZONTAL, false));
-    }
-
-    public void prepararCategorias(){
-        cursoDTO = new CursoDTO();
-        Categoria categoria;
-        for (int i = 0; i < cursoDTO.categorias.length ; i ++) {
-            categoria = new Categoria(cursoDTO.categorias[i]);
-            this.categorias.add(categoria);
-        }
-    }
-    public void abrirCursoCat(){
-        Intent intent = new Intent(getContext(), form_categoria_curso.class);
-        startActivity(intent);
-    }
-
-
 }

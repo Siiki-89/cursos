@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.cursoetrabalho.R;
 import com.example.cursoetrabalho.activity.form_view_curso;
 import com.example.cursoetrabalho.model.Postagem;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -42,7 +44,10 @@ public class PostagemCursoVerticalAdapter extends RecyclerView.Adapter<PostagemC
         holder.cursoQtdView.setText(postagem.getTxtQtdVisualizacao());
         holder.cursoQtdLike.setText(postagem.getTxtQtdGostei());
         holder.cursoIsPresencial.setText(postagem.getTxtIsPresencial());
-
+        try {
+            Picasso.get().load(postagem.getImgCurso()).into(holder.imgCurso);
+        } catch (Exception e){
+        }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,6 +66,7 @@ public class PostagemCursoVerticalAdapter extends RecyclerView.Adapter<PostagemC
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
         private TextView cursoNome, cursoQtdView, cursoQtdLike, cursoFornecedor, cursoIsPresencial;
+        ImageView imgCurso;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -69,6 +75,7 @@ public class PostagemCursoVerticalAdapter extends RecyclerView.Adapter<PostagemC
             cursoQtdLike= itemView.findViewById(R.id.txtCursoQtdLike4);
             cursoFornecedor= itemView.findViewById(R.id.txtCursoFonecedor4);
             cursoIsPresencial= itemView.findViewById(R.id.txtCursoIsPresencial4);
+            imgCurso = itemView.findViewById(R.id.imgCurso4);
         }
     }
 
