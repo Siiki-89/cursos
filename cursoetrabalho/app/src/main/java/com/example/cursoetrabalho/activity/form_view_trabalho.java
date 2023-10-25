@@ -35,7 +35,7 @@ public class form_view_trabalho extends AppCompatActivity {
         vagaDAO = new VagaDAO(this);
         vagaDAO.imprimirDadosTrabalho("3", nomeCurso, new VagaDAO.OnCategoriaVagaListener() {
             @Override
-            public void OnCategoriaVagaListener(String cidade, String prazo, String cargo, String empresa, String descricao, String qtdVaga) {
+            public void OnCategoriaVagaListener(String cidade, String prazo, String cargo, String empresa, String descricao, String qtdVaga, String imgVaga) {
                 txtCargo.setText(cargo);
                 txtEmpresa.setText(empresa);
                 txtData.setText(prazo);

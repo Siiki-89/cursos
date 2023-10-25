@@ -35,7 +35,7 @@ import java.util.Map;
 public class CursoDAO {
     private Context mContext;
     private static final String HTTP = "http://";
-    private static final String IP = "10.3.17.143";
+    private static final String IP = "10.3.16.206";
     private static final String BASE_URL = HTTP + IP;
     private static final String INSERT_URL = BASE_URL + "/conexao/cadastroCurso.php";
     private static final String LIST_URL = BASE_URL + "/conexao/listarCurso.php";
@@ -73,8 +73,10 @@ public class CursoDAO {
                             Toast.makeText(mContext, "Registro concluido!", Toast.LENGTH_SHORT).show();
                         } else if ("erro".equals(response.trim())) {
                             Toast.makeText(mContext, "Erro ao inserir registro:", Toast.LENGTH_SHORT).show();
+                            Log.d("Erro adicionar curso", response);
                         }  else {
                             Toast.makeText(mContext, response, Toast.LENGTH_SHORT).show();
+                            Log.d("Erro adicionar curso", response);
                         }
                     }
                 }, new Response.ErrorListener() {
@@ -98,7 +100,7 @@ public class CursoDAO {
                         data.put("cursoQtdHrs", cursoQtdHoras);
                         data.put("cursoImg", cursoImg);
                         data.put("cursoNomeIMG", cursoNome.trim().replaceAll("\\s+", " "));
-                        data.put("URL","http://" + IP);
+                        data.put("URL" , IP);
                         return data;
                     }
                 };

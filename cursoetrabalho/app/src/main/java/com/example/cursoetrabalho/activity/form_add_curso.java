@@ -91,7 +91,7 @@ public class form_add_curso extends AppCompatActivity implements AdapterView.OnI
 
                 }
                 String img = imageToString(bitmap);
-                Log.d("img", img);
+
                 cursoCategoria = spinnerCategoriaCurso.getSelectedItem().toString();
                 cursoDTORegistro = new CursoDTO (cursoCategoria, cursoNome.getText().toString().trim(), cursoFornecedor.getText().toString().trim()
                 , cursoQtdHoras.getText().toString().trim(), cursoDescricao.getText().toString().trim()

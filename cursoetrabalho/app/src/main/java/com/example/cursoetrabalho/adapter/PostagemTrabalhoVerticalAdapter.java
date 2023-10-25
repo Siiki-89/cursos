@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.cursoetrabalho.R;
 import com.example.cursoetrabalho.activity.form_view_trabalho;
 import com.example.cursoetrabalho.model.Trabalho;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -40,6 +42,7 @@ public class PostagemTrabalhoVerticalAdapter extends RecyclerView.Adapter <Posta
         holder.txtCargo.setText(trabalho.getTxtCargo());
         holder.txtEmpresa.setText(trabalho.getTxtEmpresa());
         holder.txtRegiao.setText(trabalho.getTxtRegiao());
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,12 +60,14 @@ public class PostagemTrabalhoVerticalAdapter extends RecyclerView.Adapter <Posta
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
         private TextView txtCargo, txtEmpresa, txtRegiao;
+        ImageView imgTrabalho;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             txtCargo = itemView.findViewById(R.id.txtCargo);
             txtEmpresa = itemView.findViewById(R.id.txtEmpresa3);
             txtRegiao = itemView.findViewById(R.id.txtRegiao);
+            imgTrabalho = itemView.findViewById(R.id.imgTrabalho);
         }
     }
 }

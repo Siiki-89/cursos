@@ -30,7 +30,7 @@ import java.util.Map;
 
 public class EmpresaDAO {
     private Context mContext;
-    private static final String BASE_URL = "http://192.168.1.9/";
+    private static final String BASE_URL = "http://10.3.16.206/";
     private static final String INSERT_URL = BASE_URL + "/conexao/cadastroEmpresa.php";
 
     public EmpresaDAO(Context context) {

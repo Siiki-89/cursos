@@ -165,13 +165,37 @@
             android:id="@+id/btnFinalizar"
             android:layout_width="167dp"
             android:layout_height="46dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/config_button"
             android:text="Finalizar cadastro"
             android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnVagaImg" />
+
+        <Button
+            android:id="@+id/btnVagaImg"
+            android:layout_width="131dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/config_button"
+            android:text="Selecionar IMG"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.105"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtQtdVaga3" />
+
+        <ImageView
+            android:id="@+id/vagaImg"
+            android:layout_width="120dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.522"
+            app:layout_constraintStart_toEndOf="@+id/btnFinalizar"
+            app:layout_constraintTop_toBottomOf="@+id/txtQtdVaga3"
+            app:srcCompat="@drawable/ic_launcher_foreground" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -29,12 +29,14 @@ import java.util.Map;
 
 public class VagaDAO {
     private Context mContext;
-    private static final String BASE_URL = "http://192.168.1.9/";
+    private static final String HTTP = "http://";
+    private static final String IP = "10.3.16.206";
+    private static final String BASE_URL = HTTP + IP;
     private static final String INSERT_URL = BASE_URL + "/conexao/cadastroVaga.php";
     private static final String LIST_URL = BASE_URL + "/conexao/listarVaga.php";
 
     public interface OnCategoriaVagaListener {
-        void OnCategoriaVagaListener(String cidade, String prazo, String cargo, String empresa, String descricao, String qtdVaga);
+        void OnCategoriaVagaListener(String cidade, String prazo, String cargo, String empresa, String descricao, String qtdVaga, String imgVaga);
     }
 
     public VagaDAO(Context context) {
@@ -49,10 +51,11 @@ public class VagaDAO {
             String vagaDataInicial = vagaDTO.getVagaDataInicial();
             String vagaDataFinal = vagaDTO.getVagaDataFinal();
             String vagaDesc = vagaDTO.getVagaDesc();
+            String vagaImg = vagaDTO.getVagaIMG();
 
             if (!categoria.isEmpty() && !nomeEmpresa.isEmpty() && !vagaQtd.isEmpty() &&
                     !vagaCargo.isEmpty() && !vagaDataInicial.isEmpty() && !vagaDataFinal.isEmpty() &&
-                    !vagaDesc.isEmpty()) {
+                    !vagaDesc.isEmpty() && !vagaImg.isEmpty()) {
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, INSERT_URL, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -88,6 +91,9 @@ public class VagaDAO {
                         data.put("vagaDataVaga", vagaDataInicial);
                         data.put("vagaDataPrazo", vagaDataFinal);
                         data.put("vagaDescricao", vagaDesc);
+                        data.put("vagaNomeIMG", vagaCargo.trim().replaceAll("\\s+", " "));
+                        data.put("vagaImg", vagaImg);
+                        data.put("IP", IP);
 
                         return data;
                     }
@@ -116,7 +122,8 @@ public class VagaDAO {
                                     trabalhos.add(new Trabalho(
                                             jsonObject.getString("vaga_cargo"),
                                             jsonObject.getString("empresa_nome"),
-                                            cidade));
+                                            cidade,
+                                            jsonObject.getString("vaga_img")));
                                 }
                                 PostagemTrabalhoVerticalAdapter adapter1 = new PostagemTrabalhoVerticalAdapter(trabalhos, mContext);
                                 recyclerPostagem.setAdapter(adapter1);
@@ -168,8 +175,9 @@ public class VagaDAO {
                                     String empresa = vaga.getString("empresa_nome");
                                     String descricao = vaga.getString("vaga_descricao");
                                     String qtdVaga = vaga.getString("vaga_quantidade");
+                                    String vagaIMG = vaga.getString("vaga_img");
 
-                                    listener.OnCategoriaVagaListener(cidade, prazo, cargo, empresa, descricao, qtdVaga);
+                                    listener.OnCategoriaVagaListener(cidade, prazo, cargo, empresa, descricao, qtdVaga, vagaIMG);
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
