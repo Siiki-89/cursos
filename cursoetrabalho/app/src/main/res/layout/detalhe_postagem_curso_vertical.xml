@@ -55,7 +55,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/txtNomeCurso4" />
 
             <TextView
-                android:id="@+id/txtCursoQtdView4"
+                android:id="@+id/txtQtdVisualizacao"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -67,29 +67,16 @@
                 app:layout_constraintTop_toBottomOf="@+id/txtCursoFonecedor4" />
 
             <TextView
-                android:id="@+id/txtCursoQtdLike4"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:drawableEnd="@drawable/ic_gostei_cinza_24"
-                android:text="Like"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtCursoQtdView4" />
-
-            <TextView
                 android:id="@+id/txtCursoIsPresencial4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:text="Curso presencial"
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.635"
-                app:layout_constraintStart_toEndOf="@+id/txtCursoQtdLike4"
-                app:layout_constraintTop_toBottomOf="@+id/txtCursoFonecedor4" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtQtdVisualizacao" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>

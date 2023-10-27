@@ -35,7 +35,7 @@ import java.util.Map;
 public class CursoDAO {
     private Context mContext;
     private static final String HTTP = "http://";
-    private static final String IP = "10.3.16.206";
+    private static final String IP = "192.168.215.187";
     private static final String BASE_URL = HTTP + IP;
     private static final String INSERT_URL = BASE_URL + "/conexao/cadastroCurso.php";
     private static final String LIST_URL = BASE_URL + "/conexao/listarCurso.php";
@@ -49,7 +49,7 @@ public class CursoDAO {
     }
     public interface OnCategoriaCursoListener {
         void onCategoriaCursoObtida(String categoriaCurso,String cursoNome,String cursoFornecedor,String cursoQtdHoras,
-                                    String cursoDescricao,String cursoPresencial,String cursoUrl,String cursoQtdView,String cursoQtdLike, String cursoImg);
+                                    String cursoDescricao,String cursoPresencial,String cursoUrl,String cursoQtdView, String cursoImg);
     }
     public void inserirDado (CursoDTO cursoDTO) {
 
@@ -129,7 +129,6 @@ public class CursoDAO {
                                         jsonObject.getString("curso_nome"),
                                         jsonObject.getString("curso_fornecedor"),
                                         jsonObject.getString("curso_visualizacao"),
-                                        jsonObject.getString("curso_gostei"),
                                         jsonObject.getString("curso_img")));
                             }
                             PostagemCursoHorizontalAdapter adapter = new PostagemCursoHorizontalAdapter(mContext ,postagens);
@@ -179,7 +178,6 @@ public class CursoDAO {
                                         jsonObject.getString("curso_nome"),
                                         jsonObject.getString("curso_fornecedor"),
                                         jsonObject.getString("curso_visualizacao"),
-                                        jsonObject.getString("curso_gostei"),
                                         presencial,
                                         jsonObject.getString("curso_img")));
                             }
@@ -235,12 +233,11 @@ public class CursoDAO {
                                 }
                                 String cursoUrl = curso.getString("curso_url");
                                 String cursoQtdView = curso.getString("curso_visualizacao");
-                                String cursoQtdLike = curso.getString("curso_gostei");
                                 String categoriaCurso = curso.getString("curso_categoria");
                                 String cursoImg = curso.getString("curso_img");
 
                                 listener.onCategoriaCursoObtida(categoriaCurso, cursoNome, cursoFornecedor, cursoQtdHoras,
-                                        cursoDescricao, cursoPresencial, cursoUrl, cursoQtdView, cursoQtdLike, cursoImg);
+                                        cursoDescricao, cursoPresencial, cursoUrl, cursoQtdView, cursoImg);
 
                             }
 

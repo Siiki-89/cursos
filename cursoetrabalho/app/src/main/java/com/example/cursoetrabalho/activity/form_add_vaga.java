@@ -47,7 +47,7 @@ public class form_add_vaga extends AppCompatActivity implements AdapterView.OnIt
     VagaDAO vagaDAO;
     ImageView vagaImg;
     Spinner spinnerCategoriaVaga;
-    TextInputEditText nomeEmpresa, vagaCargo, vagaDataInicial, vagaDataFinal, vagaQtd;
+    TextInputEditText nomeEmpresa, vagaCargo, vagaDataInicial, vagaDataFinal, vagaQtd, vagaUrl;
     EditText vagaDesc;
     String categoria;
     Button btnInsrir,btnVagaImg;
@@ -80,6 +80,7 @@ public class form_add_vaga extends AppCompatActivity implements AdapterView.OnIt
         vagaDataFinal = findViewById(R.id.txtDataFinalCampo);
         vagaDesc = findViewById(R.id.txtDescVaga);
         vagaImg = findViewById(R.id.vagaImg);
+        vagaUrl = findViewById(R.id.txtUrlVagaCampo);
 
         new MascaraData(vagaDataInicial);
         new MascaraData(vagaDataFinal);
@@ -93,7 +94,7 @@ public class form_add_vaga extends AppCompatActivity implements AdapterView.OnIt
                 vagaDAO = new VagaDAO(getApplicationContext());
                 vagaDTODados = new VagaDTO(categoria.toString().trim(), nomeEmpresa.getText().toString().trim(), vagaQtd.getText().toString().trim(),
                         vagaCargo.getText().toString().trim(), vagaDataInicial.getText().toString().trim(), vagaDataFinal.getText().toString().trim(),
-                        vagaDesc.getText().toString().trim(), img.trim());
+                        vagaDesc.getText().toString().trim(), img.trim(), vagaUrl.getText().toString().trim());
                 vagaDAO.inserirDado(vagaDTODados);
 
             }

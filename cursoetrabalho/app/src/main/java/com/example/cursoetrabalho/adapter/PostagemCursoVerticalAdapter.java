@@ -42,7 +42,6 @@ public class PostagemCursoVerticalAdapter extends RecyclerView.Adapter<PostagemC
         holder.cursoNome.setText(postagem.getTxtNomeCurso());
         holder.cursoFornecedor.setText(postagem.getTxtFornecedor());
         holder.cursoQtdView.setText(postagem.getTxtQtdVisualizacao());
-        holder.cursoQtdLike.setText(postagem.getTxtQtdGostei());
         holder.cursoIsPresencial.setText(postagem.getTxtIsPresencial());
         try {
             Picasso.get().load(postagem.getImgCurso()).into(holder.imgCurso);
@@ -71,8 +70,7 @@ public class PostagemCursoVerticalAdapter extends RecyclerView.Adapter<PostagemC
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             cursoNome = itemView.findViewById(R.id.txtNomeCurso4);
-            cursoQtdView= itemView.findViewById(R.id.txtCursoQtdView4);
-            cursoQtdLike= itemView.findViewById(R.id.txtCursoQtdLike4);
+            cursoQtdView= itemView.findViewById(R.id.txtQtdVisualizacao);
             cursoFornecedor= itemView.findViewById(R.id.txtCursoFonecedor4);
             cursoIsPresencial= itemView.findViewById(R.id.txtCursoIsPresencial4);
             imgCurso = itemView.findViewById(R.id.imgCurso4);

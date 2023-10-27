@@ -25,6 +25,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:startIconDrawable="@drawable/calendar_days_solid"
             app:startIconTint="#0077B6">
 
             <com.google.android.material.textfield.TextInputEditText

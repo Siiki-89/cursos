@@ -4,24 +4,22 @@ import android.widget.ImageView;
 
 public class Postagem {
 
-    private String txtNomeCurso, txtFornecedor, txtQtdVisualizacao, txtQtdGostei, txtIsPresencial;
+    private String txtNomeCurso, txtFornecedor, txtQtdVisualizacao, txtIsPresencial;
     private String imgCurso;
 
-    public Postagem(String txtNomeCurso, String txtFornecedor, String txtQtdVisualizacao, String txtQtdGostei, String imgCurso) {
+    public Postagem(String txtNomeCurso, String txtFornecedor, String txtQtdVisualizacao, String imgCurso) {
 
         this.txtNomeCurso = txtNomeCurso;
         this.txtFornecedor = txtFornecedor;
         this.txtQtdVisualizacao = txtQtdVisualizacao;
-        this.txtQtdGostei = txtQtdGostei;
         this.imgCurso = imgCurso;
 
     }
 
-    public Postagem(String txtNomeCurso, String txtFornecedor, String txtQtdVisualizacao, String txtQtdGostei, String txtIsPresencial, String imgCurso) {
+    public Postagem(String txtNomeCurso, String txtFornecedor, String txtQtdVisualizacao, String txtIsPresencial, String imgCurso) {
         this.txtNomeCurso = txtNomeCurso;
         this.txtFornecedor = txtFornecedor;
         this.txtQtdVisualizacao = txtQtdVisualizacao;
-        this.txtQtdGostei = txtQtdGostei;
         this.txtIsPresencial = txtIsPresencial;
         this.imgCurso = imgCurso;
     }
@@ -61,13 +59,6 @@ public class Postagem {
         this.txtQtdVisualizacao = txtQtdVisualizacao;
     }
 
-    public String getTxtQtdGostei() {
-        return txtQtdGostei;
-    }
-
-    public void setTxtQtdGostei(String txtQtdGostei) {
-        this.txtQtdGostei = txtQtdGostei;
-    }
 
     public String getImgCurso() {
         return imgCurso;

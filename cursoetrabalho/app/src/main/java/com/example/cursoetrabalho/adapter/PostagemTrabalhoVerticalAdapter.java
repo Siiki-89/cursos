@@ -42,7 +42,10 @@ public class PostagemTrabalhoVerticalAdapter extends RecyclerView.Adapter <Posta
         holder.txtCargo.setText(trabalho.getTxtCargo());
         holder.txtEmpresa.setText(trabalho.getTxtEmpresa());
         holder.txtRegiao.setText(trabalho.getTxtRegiao());
-
+        try {
+            Picasso.get().load(trabalho.getImgTrabalho()).into(holder.imgTrabalho);
+        } catch (Exception e){
+        }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

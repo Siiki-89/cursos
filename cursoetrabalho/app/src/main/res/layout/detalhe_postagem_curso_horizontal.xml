@@ -20,7 +20,7 @@
 
             <ImageView
                 android:id="@+id/imgCurso4"
-                android:layout_width="match_parent"
+                android:layout_width="120dp"
                 android:layout_height="140dp"
                 android:layout_marginTop="10dp"
                 android:scaleType="centerCrop"
@@ -43,13 +43,6 @@
 
             <TextView
                 android:id="@+id/txtQtdVisualizacao"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableEnd="@drawable/ic_gostei_cinza_24"
-                android:text="0" />
-
-            <TextView
-                android:id="@+id/txtQtdGostei"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableEnd="@drawable/icon_olho"

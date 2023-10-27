@@ -30,13 +30,13 @@ import java.util.Map;
 public class VagaDAO {
     private Context mContext;
     private static final String HTTP = "http://";
-    private static final String IP = "10.3.16.206";
+    private static final String IP = "192.168.215.187";
     private static final String BASE_URL = HTTP + IP;
     private static final String INSERT_URL = BASE_URL + "/conexao/cadastroVaga.php";
     private static final String LIST_URL = BASE_URL + "/conexao/listarVaga.php";
 
     public interface OnCategoriaVagaListener {
-        void OnCategoriaVagaListener(String cidade, String prazo, String cargo, String empresa, String descricao, String qtdVaga, String imgVaga);
+        void OnCategoriaVagaListener(String cidade, String prazo, String cargo, String empresa, String descricao, String qtdVaga, String imgVaga, String vagaUrl);
     }
 
     public VagaDAO(Context context) {
@@ -52,10 +52,11 @@ public class VagaDAO {
             String vagaDataFinal = vagaDTO.getVagaDataFinal();
             String vagaDesc = vagaDTO.getVagaDesc();
             String vagaImg = vagaDTO.getVagaIMG();
+            String vagaUrl = vagaDTO.getVagaUrl();
 
             if (!categoria.isEmpty() && !nomeEmpresa.isEmpty() && !vagaQtd.isEmpty() &&
                     !vagaCargo.isEmpty() && !vagaDataInicial.isEmpty() && !vagaDataFinal.isEmpty() &&
-                    !vagaDesc.isEmpty() && !vagaImg.isEmpty()) {
+                    !vagaDesc.isEmpty() && !vagaImg.isEmpty()&& !vagaUrl.isEmpty()) {
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, INSERT_URL, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -93,6 +94,7 @@ public class VagaDAO {
                         data.put("vagaDescricao", vagaDesc);
                         data.put("vagaNomeIMG", vagaCargo.trim().replaceAll("\\s+", " "));
                         data.put("vagaImg", vagaImg);
+                        data.put("vagaUrl", vagaUrl);
                         data.put("IP", IP);
 
                         return data;
@@ -176,8 +178,9 @@ public class VagaDAO {
                                     String descricao = vaga.getString("vaga_descricao");
                                     String qtdVaga = vaga.getString("vaga_quantidade");
                                     String vagaIMG = vaga.getString("vaga_img");
+                                    String vagaUrl = vaga.getString("vaga_url");
 
-                                    listener.OnCategoriaVagaListener(cidade, prazo, cargo, empresa, descricao, qtdVaga, vagaIMG);
+                                    listener.OnCategoriaVagaListener(cidade, prazo, cargo, empresa, descricao, qtdVaga, vagaIMG, vagaUrl);
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();

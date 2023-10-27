@@ -44,7 +44,6 @@ public class PostagemCursoHorizontalAdapter extends RecyclerView.Adapter<Postage
         holder.txtNomeCurso.setText(postagem.getTxtNomeCurso());
         holder.txtFornecedor.setText(postagem.getTxtFornecedor());
         holder.txtQtdVisualizacao.setText(postagem.getTxtQtdVisualizacao());
-        holder.txtQtdGostei.setText(postagem.getTxtQtdGostei());
         try {
             Picasso.get().load(postagem.getImgCurso()).into(holder.imgCurso);
         } catch (Exception e){
@@ -67,7 +66,7 @@ public class PostagemCursoHorizontalAdapter extends RecyclerView.Adapter<Postage
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
-        TextView txtNomeCurso, txtFornecedor, txtQtdVisualizacao, txtQtdGostei;
+        TextView txtNomeCurso, txtFornecedor, txtQtdVisualizacao;
         ImageView imgCurso;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -75,7 +74,6 @@ public class PostagemCursoHorizontalAdapter extends RecyclerView.Adapter<Postage
             txtNomeCurso = itemView.findViewById(R.id.txtNomeCurso);
             txtFornecedor = itemView.findViewById(R.id.txtFornecedor);
             txtQtdVisualizacao = itemView.findViewById(R.id.txtQtdVisualizacao);
-            txtQtdGostei = itemView.findViewById(R.id.txtQtdGostei);
             imgCurso = itemView.findViewById(R.id.imgCurso4);
         }
     }

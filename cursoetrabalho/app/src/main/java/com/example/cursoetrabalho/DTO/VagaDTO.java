@@ -14,11 +14,12 @@ public class VagaDTO {
     String vagaDataFinal;
     String vagaDesc;
     String vagaIMG;
+    String vagaUrl;
 
     public VagaDTO() {
     }
 
-    public VagaDTO(String vagaCategoria, String vagaNomeEmpresa, String vagaQtd, String vagaCargo, String vagaDataInicial, String vagaDataFinal, String vagaDesc, String vagaIMG) {
+    public VagaDTO(String vagaCategoria, String vagaNomeEmpresa, String vagaQtd, String vagaCargo, String vagaDataInicial, String vagaDataFinal, String vagaDesc, String vagaIMG, String vagaUrl) {
         this.vagaCategoria = vagaCategoria;
         this.vagaNomeEmpresa = vagaNomeEmpresa;
         this.vagaQtd = vagaQtd;
@@ -27,6 +28,7 @@ public class VagaDTO {
         this.vagaDataFinal = vagaDataFinal;
         this.vagaDesc = vagaDesc;
         this.vagaIMG = vagaIMG;
+        this.vagaUrl = vagaUrl;
     }
 
     public String getVagaCategoria() {
@@ -91,5 +93,13 @@ public class VagaDTO {
 
     public void setVagaIMG(String vagaIMG) {
         this.vagaIMG = vagaIMG;
+    }
+
+    public String getVagaUrl() {
+        return vagaUrl;
+    }
+
+    public void setVagaUrl(String vagaUrl) {
+        this.vagaUrl = vagaUrl;
     }
 }
