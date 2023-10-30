@@ -2,6 +2,7 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Cursoetrabalho" parent="Theme.AppCompat.Light">
         <item name="colorPrimary">@color/white</item>
+        <item name="android:windowBackground">@color/black</item>
     </style>
 
     <style name="Theme.Cursoetrabalho" parent="Base.Theme.Cursoetrabalho" />

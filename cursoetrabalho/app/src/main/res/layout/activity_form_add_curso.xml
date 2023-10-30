@@ -25,7 +25,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:startIconDrawable="@drawable/calendar_days_solid"
+            app:startIconDrawable="@drawable/icon_add_curso_curso"
             app:startIconTint="#0077B6">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -45,6 +45,8 @@
             android:layout_marginEnd="33dp"
             android:hint="Fornecedor (empresa)"
             android:textColorHint="#000000"
+            app:startIconDrawable="@drawable/icon_add_curso_empresa"
+            app:startIconTint="#0077B6"
             app:boxBackgroundMode="outline"
             app:hintTextColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
@@ -179,7 +181,9 @@
             android:layout_marginStart="33dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="33dp"
+            app:startIconDrawable="@drawable/icon_add_curso_link"
             android:hint="Url do site hospedor"
+            app:startIconTint="#0077B6"
             android:textColorHint="#000000"
             app:boxBackgroundMode="outline"
             app:hintTextColor="#000000"
@@ -207,6 +211,8 @@
             android:textColorHint="#000000"
             app:boxBackgroundMode="outline"
             app:hintTextColor="#000000"
+            app:startIconTint="#0077B6"
+            app:startIconDrawable="@drawable/icon_add_curso_relogio"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtUrlFornecedor">

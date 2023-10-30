@@ -4,7 +4,7 @@
     <item
         android:id="@+id/menu_trabalho"
         android:enabled="true"
-        android:icon="@drawable/icon_trabalho"
+        android:icon="@drawable/icon_entrada_trabalho"
         android:title="Trabalho"/>
     <item
         android:id="@+id/menu_curso"
