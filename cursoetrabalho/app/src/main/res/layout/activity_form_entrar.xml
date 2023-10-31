@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/black"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -13,10 +13,11 @@
         android:layout_marginTop="100dp"
         android:layout_marginEnd="33dp"
         android:hint="CPF"
-        android:textColorHint="#000000"
+        android:textColorHint="@color/white"
         app:boxBackgroundMode="outline"
-        app:boxCollapsedPaddingTop="2dp"
-        app:hintTextColor="#000000"
+        app:boxCollapsedPaddingTop="3dp"
+        app:boxStrokeColor="#0077B6"
+        app:hintTextColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
@@ -27,9 +28,10 @@
             android:id="@+id/editTextCpf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
             android:digits="0123456789"
-            android:maxLength="14" />
+            android:inputType="number"
+            android:maxLength="14"
+            android:textColor="@color/white" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -40,11 +42,13 @@
         android:layout_marginTop="43dp"
         android:layout_marginEnd="33dp"
         android:hint="Senha"
-        android:textColorHint="#000000"
+        android:textColorHint="@color/white"
+        app:boxCollapsedPaddingTop="3dp"
         app:boxBackgroundMode="outline"
+        app:boxStrokeColor="#0077B6"
         app:endIconMode="password_toggle"
         app:endIconTint="@color/azul"
-        app:hintTextColor="#000000"
+        app:hintTextColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayoutCpf"

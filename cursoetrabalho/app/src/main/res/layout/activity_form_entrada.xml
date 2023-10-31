@@ -26,27 +26,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:scaleType="centerCrop"
-                android:src="@drawable/teste" />
+                android:src="@drawable/img_entrada_graduacao" />
 
-            <TextView
-                android:layout_width="255dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:text="Curso"
-                android:textAlignment="center"
-                android:textAllCaps="false"
-                android:textColor="#0077b6"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="255dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:text="Busque cursos abrangendo uma variedade de áreas."
-                android:textAlignment="center"
-                android:textColor="#0077b6"
-                android:textSize="20sp" />
 
         </LinearLayout>
 
@@ -59,8 +40,9 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:scaleType="centerInside"
-                android:src="@drawable/teste" />
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:src="@drawable/img_entrada_trabalho" />
 
 
         </LinearLayout>

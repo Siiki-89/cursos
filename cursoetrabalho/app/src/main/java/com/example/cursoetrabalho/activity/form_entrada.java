@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.cursoetrabalho.R;
 
-public class MainActivity extends AppCompatActivity {
+public class form_entrada extends AppCompatActivity {
 
 
     private ViewFlipper viewFlipper;
@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_form_entrada);
 
         viewFlipper = findViewById(R.id.view_flipper);
 
