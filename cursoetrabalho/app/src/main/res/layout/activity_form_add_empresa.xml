@@ -25,6 +25,7 @@
             android:hint="Nome da empresa"
             android:textColorHint="#000000"
             app:boxBackgroundMode="outline"
+            app:boxStrokeColor="#0077B6"
             app:hintTextColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -50,6 +51,7 @@
             android:hint="CNPJ"
             android:textColorHint="#000000"
             app:boxBackgroundMode="outline"
+            app:boxStrokeColor="#0077B6"
             app:hintTextColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -75,6 +77,7 @@
             app:startIconDrawable="@drawable/icon_add_empresa_email"
             android:textColorHint="#000000"
             app:boxBackgroundMode="outline"
+            app:boxStrokeColor="#0077B6"
             app:hintTextColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -100,6 +103,7 @@
             android:hint="CEP"
             android:textColorHint="#000000"
             app:boxBackgroundMode="outline"
+            app:boxStrokeColor="#0077B6"
             app:hintTextColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -123,6 +127,7 @@
             android:hint="Endereço completo"
             android:textColorHint="#000000"
             app:boxBackgroundMode="outline"
+            app:boxStrokeColor="#0077B6"
             app:hintTextColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -146,6 +151,7 @@
             android:hint="Estado"
             android:textColorHint="#000000"
             app:boxBackgroundMode="outline"
+            app:boxStrokeColor="#0077B6"
             app:hintTextColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -170,6 +176,7 @@
             android:hint="Cidade"
             android:textColorHint="#000000"
             app:boxBackgroundMode="outline"
+            app:boxStrokeColor="#0077B6"
             app:hintTextColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -196,6 +203,7 @@
             app:startIconDrawable="@drawable/icon_add_empresa_telefone"
             android:textColorHint="#000000"
             app:boxBackgroundMode="outline"
+            app:boxStrokeColor="#0077B6"
             app:hintTextColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -209,49 +217,20 @@
                 android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="32dp"
-            android:text="Logo da empresa"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtTelefone" />
-
-        <Button
-            android:id="@+id/btnEnviarImagem"
-            android:layout_width="125dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/config_button"
-            android:text="Enviar imagem"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
         <Button
             android:id="@+id/btnFinalizar"
             android:layout_width="160dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="33dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/config_button"
+            android:layout_height="65dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="30dp"
+            android:backgroundTint="@color/azul"
             android:text="Finalizar cadastro"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/btnEnviarImagem"
-            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtTelefone" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

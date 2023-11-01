@@ -56,11 +56,12 @@
         <activity
             android:name=".activity.form_entrar"
             android:exported="false"
-            android:theme="@style/Theme.MaterialComponents.NoActionBar" />
+            android:label="Entrar"
+            android:theme="@style/Theme.Entrada"/>
         <activity
             android:name=".activity.form_entrada"
             android:exported="true"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
+            android:theme="@style/Theme.MaterialComponents.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

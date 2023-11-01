@@ -1,12 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.Cursoetrabalho" parent="Theme.MaterialComponents.DayNight">
+    <style name="Base.Theme.Cursoetrabalho" parent="Theme.MaterialComponents.Light">
         <item name="colorPrimary">@color/white</item>
-        <item name="android:windowBackground">@color/black</item>
-        <item name="colorSecondary">@color/white</item>
+        <item name="colorAccent">@color/white</item>
+    </style>
+
+    <style name="Entrada" parent="Theme.MaterialComponents">
+        <item name="colorPrimary">@color/white</item>
         <item name="colorAccent">@color/white</item>
     </style>
 
     <style name="Theme.Cursoetrabalho" parent="Base.Theme.Cursoetrabalho" />
+    <style name="Theme.Entrada" parent="Entrada" />
 
 </resources>

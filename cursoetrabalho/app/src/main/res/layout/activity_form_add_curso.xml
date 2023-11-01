@@ -227,12 +227,14 @@
 
         <Button
             android:id="@+id/btnFinalizar"
-            android:layout_width="161dp"
-            android:layout_height="49dp"
-            android:layout_marginTop="14dp"
-            android:background="@drawable/config_button"
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="30dp"
+            android:backgroundTint="@color/azul"
             android:text="Finalizar cadastro"
             android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtQtdHoras" />
