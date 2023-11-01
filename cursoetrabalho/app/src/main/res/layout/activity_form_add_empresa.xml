@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/black"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -22,21 +23,23 @@
             android:layout_marginEnd="33dp"
             app:startIconTint="#0077B6"
             app:startIconDrawable="@drawable/icon_add_empresa_empresa"
-            android:hint="Nome da empresa"
-            android:textColorHint="#000000"
+            android:background="#2e2d2b"
+            android:textColorHint="@color/white"
             app:boxBackgroundMode="outline"
             app:boxStrokeColor="#0077B6"
-            app:hintTextColor="#000000"
+            app:hintTextColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:boxCornerRadiusBottomStart="0dp" app:boxCornerRadiusBottomEnd="0dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtNomeEmpresaCampo"
                 android:layout_width="match_parent"
-                android:maxLength="55"
+                android:hint="Nome da empresa"
                 android:layout_height="wrap_content"
-                android:inputType="text" />
+                android:inputType="text"
+                android:maxLength="55" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -49,10 +52,10 @@
             app:startIconTint="#0077B6"
             app:startIconDrawable="@drawable/icon_add_empresa_cnpj"
             android:hint="CNPJ"
-            android:textColorHint="#000000"
+            android:textColorHint="@color/white"
             app:boxBackgroundMode="outline"
             app:boxStrokeColor="#0077B6"
-            app:hintTextColor="#000000"
+            app:hintTextColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtNomeEmpresa">
@@ -61,6 +64,7 @@
                 android:id="@+id/txtCNPJCampo"
                 android:layout_width="match_parent"
                 android:maxLength="18"
+                android:background="#2e2d2b"
                 android:layout_height="wrap_content"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -75,7 +79,7 @@
             android:hint="E-mail"
             app:startIconTint="#0077B6"
             app:startIconDrawable="@drawable/icon_add_empresa_email"
-            android:textColorHint="#000000"
+            android:textColorHint="@color/white"
             app:boxBackgroundMode="outline"
             app:boxStrokeColor="#0077B6"
             app:hintTextColor="#000000"
@@ -87,6 +91,7 @@
                 android:id="@+id/txtEmailCampo"
                 android:layout_width="match_parent"
                 android:maxLength="55"
+                android:background="#2e2d2b"
                 android:layout_height="wrap_content"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -101,10 +106,10 @@
             app:startIconTint="#0077B6"
             app:startIconDrawable="@drawable/icon_add_empresa_local"
             android:hint="CEP"
-            android:textColorHint="#000000"
+            android:textColorHint="@color/white"
             app:boxBackgroundMode="outline"
             app:boxStrokeColor="#0077B6"
-            app:hintTextColor="#000000"
+            app:hintTextColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtEmail">
@@ -114,6 +119,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLength="9"
+                android:background="#2e2d2b"
                 android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -125,10 +131,10 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="33dp"
             android:hint="Endereço completo"
-            android:textColorHint="#000000"
+            android:textColorHint="@color/white"
             app:boxBackgroundMode="outline"
             app:boxStrokeColor="#0077B6"
-            app:hintTextColor="#000000"
+            app:hintTextColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtCEP"
@@ -138,6 +144,7 @@
                 android:id="@+id/txtEnderecoCampo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="#2e2d2b"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 

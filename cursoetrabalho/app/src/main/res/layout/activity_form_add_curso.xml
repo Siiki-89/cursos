@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/black"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -149,14 +150,13 @@
 
         <Button
             android:id="@+id/btnLogo"
-            android:layout_width="95dp"
-            android:layout_height="49dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/config_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="56dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/azul"
             android:text="Selecionar"
             android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.242"
             app:layout_constraintStart_toEndOf="@+id/RGroup"
             app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
@@ -228,9 +228,9 @@
         <Button
             android:id="@+id/btnFinalizar"
             android:layout_width="wrap_content"
-            android:layout_height="55dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="30dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
             android:backgroundTint="@color/azul"
             android:text="Finalizar cadastro"
             android:textColor="@color/white"

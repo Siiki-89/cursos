@@ -12,7 +12,7 @@
         android:layout_marginStart="33dp"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="33dp"
-        android:background="@android:color/transparent"
+        android:backgroundTint="#2e2d2b"
         android:hint="CPF"
         android:textColorHint="@color/white"
         app:boxBackgroundMode="outline"
@@ -23,7 +23,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:startIconDrawable="@drawable/icon_pessoa"
-        app:startIconTint="#0077B6">
+        app:startIconTint="#0077B6"
+        app:boxCornerRadiusBottomStart="0dp" app:boxCornerRadiusBottomEnd="0dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editTextCpf"
@@ -42,10 +43,11 @@
         android:layout_marginStart="33dp"
         android:layout_marginTop="43dp"
         android:layout_marginEnd="33dp"
+        android:backgroundTint="#2e2d2b"
         android:hint="Senha"
         android:textColorHint="@color/white"
-        app:boxCollapsedPaddingTop="3dp"
         app:boxBackgroundMode="outline"
+        app:boxCollapsedPaddingTop="3dp"
         app:boxStrokeColor="#0077B6"
         app:endIconMode="password_toggle"
         app:endIconTint="@color/azul"
