@@ -23,7 +23,6 @@
             android:layout_marginEnd="33dp"
             app:startIconTint="#0077B6"
             app:startIconDrawable="@drawable/icon_add_empresa_empresa"
-            android:background="#2e2d2b"
             android:textColorHint="@color/white"
             app:boxBackgroundMode="outline"
             app:boxStrokeColor="#0077B6"
@@ -31,15 +30,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:boxBackgroundColor="#2e2d2b"
             app:boxCornerRadiusBottomStart="0dp" app:boxCornerRadiusBottomEnd="0dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtNomeEmpresaCampo"
                 android:layout_width="match_parent"
-                android:hint="Nome da empresa"
                 android:layout_height="wrap_content"
+                android:hint="Nome da empresa"
                 android:inputType="text"
-                android:maxLength="55" />
+                android:maxLength="55"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -51,20 +53,23 @@
             android:layout_marginEnd="33dp"
             app:startIconTint="#0077B6"
             app:startIconDrawable="@drawable/icon_add_empresa_cnpj"
-            android:hint="CNPJ"
             android:textColorHint="@color/white"
             app:boxBackgroundMode="outline"
-            app:boxStrokeColor="#0077B6"
             app:hintTextColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtNomeEmpresa">
+            app:layout_constraintTop_toBottomOf="@+id/txtNomeEmpresa"
+            app:boxBackgroundColor="#2e2d2b"
+            app:boxStrokeColor="#0077B6"
+            app:boxCornerRadiusBottomStart="0dp" app:boxCornerRadiusBottomEnd="0dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtCNPJCampo"
                 android:layout_width="match_parent"
                 android:maxLength="18"
-                android:background="#2e2d2b"
+                android:hint="CNPJ"
+                android:textColorHint="#FFFFFF"
+                android:textColor="#FFFFFF"
                 android:layout_height="wrap_content"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -76,22 +81,24 @@
             android:layout_marginStart="33dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="33dp"
-            android:hint="E-mail"
             app:startIconTint="#0077B6"
             app:startIconDrawable="@drawable/icon_add_empresa_email"
-            android:textColorHint="@color/white"
             app:boxBackgroundMode="outline"
-            app:boxStrokeColor="#0077B6"
-            app:hintTextColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtCNPJ">
+            app:layout_constraintTop_toBottomOf="@+id/txtCNPJ"
+            android:textColorHint="#FFFFFF"
+            app:boxBackgroundColor="#2e2d2b"
+            app:boxStrokeColor="#0077B6"
+            app:boxCornerRadiusBottomStart="0dp" app:boxCornerRadiusBottomEnd="0dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtEmailCampo"
                 android:layout_width="match_parent"
                 android:maxLength="55"
-                android:background="#2e2d2b"
+                android:hint="E-mail"
+                android:textColorHint="#FFFFFF"
+                android:textColor="#FFFFFF"
                 android:layout_height="wrap_content"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -105,21 +112,24 @@
             android:layout_marginEnd="33dp"
             app:startIconTint="#0077B6"
             app:startIconDrawable="@drawable/icon_add_empresa_local"
-            android:hint="CEP"
-            android:textColorHint="@color/white"
             app:boxBackgroundMode="outline"
-            app:boxStrokeColor="#0077B6"
             app:hintTextColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtEmail">
+            app:layout_constraintTop_toBottomOf="@+id/txtEmail"
+            android:textColorHint="#FFFFFF"
+            app:boxBackgroundColor="#2e2d2b"
+            app:boxStrokeColor="#0077B6"
+            app:boxCornerRadiusBottomStart="0dp" app:boxCornerRadiusBottomEnd="0dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtCEPCampo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="CEP"
+                android:textColorHint="#FFFFFF"
+                android:textColor="#FFFFFF"
                 android:maxLength="9"
-                android:background="#2e2d2b"
                 android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -130,21 +140,24 @@
             android:layout_marginStart="33dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="33dp"
-            android:hint="Endereço completo"
-            android:textColorHint="@color/white"
             app:boxBackgroundMode="outline"
-            app:boxStrokeColor="#0077B6"
             app:hintTextColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtCEP"
-            app:startIconTint="#0077B6">
+            app:startIconTint="#0077B6"
+            android:textColorHint="#FFFFFF"
+            app:boxBackgroundColor="#2e2d2b"
+            app:boxStrokeColor="#0077B6"
+            app:boxCornerRadiusBottomStart="0dp" app:boxCornerRadiusBottomEnd="0dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtEnderecoCampo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#2e2d2b"
+                android:hint="Endereço completo"
+                android:textColorHint="#FFFFFF"
+                android:textColor="#FFFFFF"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -155,20 +168,23 @@
             android:layout_marginStart="33dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="33dp"
-            android:hint="Estado"
-            android:textColorHint="#000000"
             app:boxBackgroundMode="outline"
-            app:boxStrokeColor="#0077B6"
-            app:hintTextColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtEndereco"
-            app:startIconTint="#0077B6">
+            app:startIconTint="#0077B6"
+            android:textColorHint="#FFFFFF"
+            app:boxBackgroundColor="#2e2d2b"
+            app:boxStrokeColor="#0077B6"
+            app:boxCornerRadiusBottomStart="0dp" app:boxCornerRadiusBottomEnd="0dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtUFCampo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="Estado"
+                android:textColorHint="#FFFFFF"
+                android:textColor="#FFFFFF"
                 android:maxLength="2"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -181,19 +197,22 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="33dp"
             android:hint="Cidade"
-            android:textColorHint="#000000"
             app:boxBackgroundMode="outline"
-            app:boxStrokeColor="#0077B6"
-            app:hintTextColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtUF"
-            app:startIconTint="#0077B6">
+            app:startIconTint="#0077B6"
+            android:textColorHint="#FFFFFF"
+            app:boxBackgroundColor="#2e2d2b"
+            app:boxStrokeColor="#0077B6"
+            app:boxCornerRadiusBottomStart="0dp" app:boxCornerRadiusBottomEnd="0dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtCidadeCampo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColorHint="#FFFFFF"
+                android:textColor="#FFFFFF"
                 android:maxLength="55"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -205,21 +224,24 @@
             android:layout_marginStart="33dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="33dp"
-            android:hint="Telefone"
             app:startIconTint="#0077B6"
             app:startIconDrawable="@drawable/icon_add_empresa_telefone"
-            android:textColorHint="#000000"
             app:boxBackgroundMode="outline"
-            app:boxStrokeColor="#0077B6"
-            app:hintTextColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtCidade">
+            app:layout_constraintTop_toBottomOf="@+id/txtCidade"
+            android:textColorHint="#FFFFFF"
+            app:boxBackgroundColor="#2e2d2b"
+            app:boxStrokeColor="#0077B6"
+            app:boxCornerRadiusBottomStart="0dp" app:boxCornerRadiusBottomEnd="0dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtTelefoneCampo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="Telefone"
+                android:textColorHint="#FFFFFF"
+                android:textColor="#FFFFFF"
                 android:maxLength="15"
                 android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>

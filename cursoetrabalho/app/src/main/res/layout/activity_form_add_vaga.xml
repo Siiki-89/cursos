@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/black"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,21 +18,25 @@
             android:layout_marginStart="33dp"
             android:layout_marginTop="34dp"
             android:layout_marginEnd="33dp"
-            android:hint="Nome da empresa"
-            android:textColorHint="#000000"
             app:boxBackgroundMode="outline"
             app:boxStrokeColor="#0077B6"
             app:startIconTint="#0077B6"
             app:startIconDrawable="@drawable/icon_add_vaga_empresa"
-            app:hintTextColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColorHint="@color/white"
+            app:hintTextColor="@color/white"
+            app:boxBackgroundColor="#2e2d2b"
+            app:boxCornerRadiusBottomStart="0dp" app:boxCornerRadiusBottomEnd="0dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtNomeEmpresaCampo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="Nome da empresa"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -42,21 +47,25 @@
             android:layout_marginStart="33dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="33dp"
-            android:hint="Cargo da vaga"
-            android:textColorHint="#000000"
             app:boxBackgroundMode="outline"
             app:boxStrokeColor="#0077B6"
             app:startIconTint="#0077B6"
             app:startIconDrawable="@drawable/icon_add_vaga_cargo"
-            app:hintTextColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtNomeEmpresa">
+            app:layout_constraintTop_toBottomOf="@+id/txtNomeEmpresa"
+            android:textColorHint="@color/white"
+            app:hintTextColor="@color/white"
+            app:boxBackgroundColor="#2e2d2b"
+            app:boxCornerRadiusBottomStart="0dp" app:boxCornerRadiusBottomEnd="0dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtCargoCampo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="Cargo da vaga"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -65,22 +74,26 @@
             android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:hint="Data inicial"
-            android:textColorHint="#000000"
             app:boxBackgroundMode="outline"
             app:boxStrokeColor="#0077B6"
-            app:hintTextColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.13"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtCargo"
             app:startIconDrawable="@drawable/icon_add_vaga_relogio"
-            app:startIconTint="#0077B6">
+            app:startIconTint="#0077B6"
+            android:textColorHint="@color/white"
+            app:hintTextColor="@color/white"
+            app:boxBackgroundColor="#2e2d2b"
+            app:boxCornerRadiusBottomStart="0dp" app:boxCornerRadiusBottomEnd="0dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtDataInicialCampo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="Data inicial"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF"
                 android:inputType="date" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -90,34 +103,40 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="33dp"
-            android:hint="Data final"
-            android:textColorHint="#000000"
             app:boxBackgroundMode="outline"
             app:boxStrokeColor="#0077B6"
-            app:hintTextColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.64"
             app:layout_constraintStart_toEndOf="@+id/txtDataInicial"
             app:layout_constraintTop_toBottomOf="@+id/txtCargo"
             app:startIconDrawable="@drawable/icon_add_vaga_relogio"
-            app:startIconTint="#0077B6">
+            app:startIconTint="#0077B6"
+            android:textColorHint="@color/white"
+            app:hintTextColor="@color/white"
+            app:boxBackgroundColor="#2e2d2b"
+            app:boxCornerRadiusBottomStart="0dp" app:boxCornerRadiusBottomEnd="0dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtDataFinalCampo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="Data final"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF"
                 android:inputType="date" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Spinner
             android:id="@+id/spinnerCategoriaVaga"
-            style="@android:style/Widget.Material.Spinner.Underlined"
+            android:background="#2e2d2b"
+            android:popupBackground="#2e2d2b"
+            android:spinnerMode="dropdown"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginStart="33dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="33dp"
-            android:spinnerMode="dropdown"
+            android:dropDownVerticalOffset="60dp"
             android:textAlignment="viewStart"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -131,7 +150,7 @@
             android:layout_marginTop="13dp"
             android:layout_marginEnd="33dp"
             android:text="Descrição da vaga"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -139,14 +158,16 @@
 
         <EditText
             android:id="@+id/txtDescVaga"
-            android:layout_width="348dp"
+            android:layout_width="0dp"
             android:layout_height="136dp"
             android:layout_marginStart="33dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="33dp"
+            android:background="#2e2d2b"
             android:ems="10"
             android:gravity="start|top"
             android:inputType="textMultiLine"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView13" />
@@ -158,19 +179,23 @@
             android:layout_marginStart="33dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="33dp"
-            android:hint="Quantidade de vagas"
-            android:textColorHint="#000000"
             app:boxBackgroundMode="outline"
             app:boxStrokeColor="#0077B6"
-            app:hintTextColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtDescVaga">
+            app:layout_constraintTop_toBottomOf="@+id/txtDescVaga"
+            android:textColorHint="@color/white"
+            app:hintTextColor="@color/white"
+            app:boxBackgroundColor="#2e2d2b"
+            app:boxCornerRadiusBottomStart="0dp" app:boxCornerRadiusBottomEnd="0dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtQtdVagaCampo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="Quantidade de vagas"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF"
                 android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -181,21 +206,25 @@
             android:layout_marginStart="33dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="33dp"
-            android:hint="URL da vaga"
-            android:textColorHint="#000000"
             app:boxBackgroundMode="outline"
             app:boxStrokeColor="#0077B6"
-            app:hintTextColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtQtdVaga3"
             app:startIconDrawable="@drawable/icon_add_vaga_link"
-            app:startIconTint="#0077B6">
+            app:startIconTint="#0077B6"
+            android:textColorHint="@color/white"
+            app:hintTextColor="@color/white"
+            app:boxBackgroundColor="#2e2d2b"
+            app:boxCornerRadiusBottomStart="0dp" app:boxCornerRadiusBottomEnd="0dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtUrlVagaCampo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="URL da vaga"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -229,9 +258,13 @@
 
         <ImageView
             android:id="@+id/vagaImg"
-            android:layout_width="114dp"
-            android:layout_height="126dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="33dp"
             android:layout_marginTop="20dp"
+            android:layout_marginEnd="33dp"
+            android:layout_marginBottom="30dp"
+            android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.494"

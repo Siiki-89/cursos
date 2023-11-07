@@ -19,20 +19,24 @@
             android:layout_marginStart="33dp"
             android:layout_marginTop="43dp"
             android:layout_marginEnd="33dp"
-            android:hint="Nome do curso"
-            android:textColorHint="#000000"
-            app:boxBackgroundMode="outline"
-            app:hintTextColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:startIconDrawable="@drawable/icon_add_curso_curso"
-            app:startIconTint="#0077B6">
+            app:startIconTint="#0077B6"
+            app:boxBackgroundMode="outline"
+            app:boxBackgroundColor="#2e2d2b"
+            android:textColorHint="#FFFFFF"
+            app:boxStrokeColor="#0077B6"
+            app:boxCornerRadiusBottomStart="0dp" app:boxCornerRadiusBottomEnd="0dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtNomeCursoCampo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="Nome do curso"
+                android:textColorHint="#FFFFFF"
+                android:textColor="#FFFFFF"
                 android:inputType="text"
                 android:maxLength="45" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -44,34 +48,40 @@
             android:layout_marginStart="33dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="33dp"
-            android:hint="Fornecedor (empresa)"
-            android:textColorHint="#000000"
             app:startIconDrawable="@drawable/icon_add_curso_empresa"
             app:startIconTint="#0077B6"
-            app:boxBackgroundMode="outline"
-            app:hintTextColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtNomeCurso">
+            app:layout_constraintTop_toBottomOf="@+id/txtNomeCurso"
+            app:boxBackgroundMode="outline"
+            android:textColorHint="#FFFFFF"
+            app:boxBackgroundColor="#2e2d2b"
+            app:boxStrokeColor="#0077B6"
+            app:boxCornerRadiusBottomStart="0dp" app:boxCornerRadiusBottomEnd="0dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtFornecedorCampo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="Fornecedor (empresa)"
+                android:textColorHint="#FFFFFF"
+                android:textColor="#FFFFFF"
                 android:inputType="text"
                 android:maxLength="45" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Spinner
             android:id="@+id/spinnerCategoria"
-            style="@android:style/Widget.Material.Spinner.Underlined"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_below="@id/txtFornecedor"
             android:layout_marginStart="33dp"
+            android:background="#2e2d2b"
+            android:popupBackground="#2e2d2b"
+            android:spinnerMode="dropdown"
+            android:dropDownVerticalOffset="60dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="33dp"
-            android:spinnerMode="dropdown"
             android:textAlignment="viewStart"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -85,7 +95,7 @@
             android:layout_marginTop="12dp"
             android:layout_marginEnd="271dp"
             android:text="Descrição do curso:"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -99,22 +109,26 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="12dp"
             android:text="Presencial?"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtDescCurso" />
 
         <EditText
             android:id="@+id/txtDescCurso"
-            android:layout_width="348dp"
+            android:layout_width="0dp"
             android:layout_height="136dp"
             android:layout_marginStart="33dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="33dp"
-            android:maxLength="500"
             android:ems="10"
             android:gravity="start|top"
             android:inputType="textMultiLine"
+            android:maxLength="500"
+            android:textColor="@color/white"
+            android:background="#2e2d2b"
+            app:boxCornerRadiusBottomEnd="0dp"
+            app:boxCornerRadiusBottomStart="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView10" />
@@ -135,7 +149,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="S"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="16dp" />
 
             <RadioButton
@@ -143,7 +157,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="N"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="16dp" />
 
         </RadioGroup>
@@ -152,8 +166,8 @@
             android:id="@+id/btnLogo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="56dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="12dp"
             android:backgroundTint="@color/azul"
             android:text="Selecionar"
             android:textColor="@color/white"
@@ -167,7 +181,7 @@
             android:layout_marginTop="12dp"
             android:layout_marginEnd="32dp"
             android:text="Logo para o curso"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.08"
@@ -182,19 +196,23 @@
             android:layout_marginTop="12dp"
             android:layout_marginEnd="33dp"
             app:startIconDrawable="@drawable/icon_add_curso_link"
-            android:hint="Url do site hospedor"
             app:startIconTint="#0077B6"
-            android:textColorHint="#000000"
+            android:textColorHint="#FFFFFF"
             app:boxBackgroundMode="outline"
-            app:hintTextColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/RGroup">
+            app:layout_constraintTop_toBottomOf="@+id/RGroup"
+            app:boxBackgroundColor="#2e2d2b"
+            app:boxStrokeColor="#0077B6"
+            app:boxCornerRadiusBottomStart="0dp" app:boxCornerRadiusBottomEnd="0dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtUrlFornecedorCampo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="Url do site hospedor"
+                android:textColorHint="#FFFFFF"
+                android:textColor="#FFFFFF"
                 android:inputType="text"
                 android:maxLength="45" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -206,21 +224,25 @@
             android:layout_marginStart="33dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="33dp"
-            android:hint="Quantidade de horas total (HHH:MM)"
             android:textAlignment="center"
-            android:textColorHint="#000000"
             app:boxBackgroundMode="outline"
-            app:hintTextColor="#000000"
             app:startIconTint="#0077B6"
             app:startIconDrawable="@drawable/icon_add_curso_relogio"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtUrlFornecedor">
+            app:layout_constraintTop_toBottomOf="@+id/txtUrlFornecedor"
+            android:textColorHint="#FFFFFF"
+            app:boxBackgroundColor="#2e2d2b"
+            app:boxStrokeColor="#0077B6"
+            app:boxCornerRadiusBottomStart="0dp" app:boxCornerRadiusBottomEnd="0dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtQtdHorasCampo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColorHint="#FFFFFF"
+                android:hint="Quantidade de horas total (HHH:MM)"
+                android:textColor="#FFFFFF"
                 android:inputType="number"
                 android:maxLength="6" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -241,13 +263,19 @@
 
         <ImageView
             android:id="@+id/imgCurso4"
-            android:layout_width="105dp"
-            android:layout_height="84dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="12dp"
             android:layout_marginTop="12dp"
+            android:layout_marginEnd="33dp"
+            android:layout_marginBottom="30dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/txtUrlFornecedor"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.512"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/btnLogo"
             app:layout_constraintTop_toBottomOf="@+id/txtDescCurso"
+            app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/ic_launcher_foreground" />
 
 

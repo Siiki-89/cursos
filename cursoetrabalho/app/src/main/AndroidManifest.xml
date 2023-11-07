@@ -39,17 +39,20 @@
             android:name=".activity.form_add_empresa"
             android:exported="false"
             android:label="Adicionar empresa"
-            android:parentActivityName=".activity.form_principal" />
+            android:parentActivityName=".activity.form_principal"
+            android:theme="@style/Theme.Entrada"/>
         <activity
             android:name=".activity.form_add_vaga"
             android:exported="false"
             android:label="Adicionar vaga"
-            android:parentActivityName=".activity.form_principal" />
+            android:parentActivityName=".activity.form_principal"
+            android:theme="@style/Theme.Entrada"/>
         <activity
             android:name=".activity.form_add_curso"
             android:exported="false"
             android:label="Adicionar curso"
-            android:parentActivityName=".activity.form_principal" />
+            android:parentActivityName=".activity.form_principal"
+            android:theme="@style/Theme.Entrada"/>
         <activity
             android:name=".activity.form_principal"
             android:exported="false" />

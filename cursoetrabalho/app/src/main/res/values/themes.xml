@@ -12,5 +12,9 @@
 
     <style name="Theme.Cursoetrabalho" parent="Base.Theme.Cursoetrabalho" />
     <style name="Theme.Entrada" parent="Entrada" />
+    <style name="SpinnerStyle">
+        <item name="android:background">#2e2d2b</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
 
 </resources>

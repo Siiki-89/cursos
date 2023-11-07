@@ -1,34 +1,35 @@
 package com.example.cursoetrabalho.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.cursoetrabalho.DAO.EmpresaDAO;
-import com.example.cursoetrabalho.DTO.EmpresaDTO;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
+import com.example.cursoetrabalho.DAO.EmpresaDAO;
+import com.example.cursoetrabalho.DTO.EmpresaDTO;
 import com.example.cursoetrabalho.R;
 import com.example.cursoetrabalho.consultor.MascaraCEP;
 import com.example.cursoetrabalho.consultor.MascaraCNPJ;
 import com.example.cursoetrabalho.consultor.MascaraTelefone;
 import com.google.android.material.textfield.TextInputEditText;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class form_add_empresa extends AppCompatActivity {
 
-
-    EmpresaDTO empresaDTO;
-    EmpresaDAO empresaDAO;
-    Button btnFinalizar;
-    TextInputEditText empresaCNPJ, empresaNome, empresaCEP, empresaUF, empresaCidade, empresaEndereco, empresaEmail, empresaTelefone;
+    private TextInputEditText empresaCNPJ, empresaNome, empresaCEP, empresaUF, empresaCidade, empresaEndereco, empresaEmail, empresaTelefone;
+    private Button btnFinalizar;
+    private EmpresaDTO empresaDTO;
+    private EmpresaDAO empresaDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_add_empresa);
 
+        iniciarVariaveis();
+        iniciarMascaras();
+        salvarEmpresa();
+    }
 
+    private void iniciarVariaveis() {
         empresaNome = findViewById(R.id.txtNomeEmpresaCampo);
         empresaCNPJ = findViewById(R.id.txtCNPJCampo);
         empresaCEP = findViewById(R.id.txtCEPCampo);
@@ -37,13 +38,16 @@ public class form_add_empresa extends AppCompatActivity {
         empresaEndereco = findViewById(R.id.txtEnderecoCampo);
         empresaEmail = findViewById(R.id.txtEmailCampo);
         empresaTelefone = findViewById(R.id.txtTelefoneCampo);
+        btnFinalizar = findViewById(R.id.btnFinalizar);
+    }
 
+    private void iniciarMascaras() {
         new MascaraCNPJ(empresaCNPJ);
         new MascaraTelefone(empresaTelefone);
         new MascaraCEP(empresaCEP, empresaUF, empresaCidade, empresaEndereco);
+    }
 
-        btnFinalizar = findViewById(R.id.btnFinalizar);
-
+    private void salvarEmpresa() {
         btnFinalizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,7 +59,5 @@ public class form_add_empresa extends AppCompatActivity {
                 empresaDAO.inserirDado(empresaDTO);
             }
         });
-
     }
-
 }
