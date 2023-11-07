@@ -39,6 +39,7 @@ public class form_view_curso extends AppCompatActivity {
         String nomeCurso = intent.getStringExtra("txtNomeCurso");
         final String[] cursoULR = new String[1];
         cursoDAO = new CursoDAO(this);
+        cursoDAO.addView(nomeCurso);
 
         cursoDAO.imprimirDados("3", nomeCurso, new CursoDAO.OnCategoriaCursoListener() {
             @Override

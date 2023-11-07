@@ -96,7 +96,7 @@ public class CursoFragment extends Fragment {
     }
 
     private void configurarRecyclerCategoria(RecyclerView recyclerView) {
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2, GridLayoutManager.HORIZONTAL, false));
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1, GridLayoutManager.HORIZONTAL, false));
     }
 
     private void prepararCategorias() {

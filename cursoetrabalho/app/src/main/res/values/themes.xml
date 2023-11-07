@@ -4,17 +4,16 @@
         <item name="colorPrimary">@color/white</item>
         <item name="colorAccent">@color/white</item>
     </style>
+    <style name="Theme.Cursoetrabalho" parent="Base.Theme.Cursoetrabalho" />
 
     <style name="Entrada" parent="Theme.MaterialComponents">
         <item name="colorPrimary">@color/white</item>
         <item name="colorAccent">@color/white</item>
     </style>
-
-    <style name="Theme.Cursoetrabalho" parent="Base.Theme.Cursoetrabalho" />
     <style name="Theme.Entrada" parent="Entrada" />
-    <style name="SpinnerStyle">
-        <item name="android:background">#2e2d2b</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
 
+    <style name="Principal" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="colorPrimary">@color/black</item>
+    </style>
+    <style name="Theme.Principal" parent="Principal" />
 </resources>

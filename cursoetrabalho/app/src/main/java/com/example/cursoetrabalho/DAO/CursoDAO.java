@@ -35,10 +35,11 @@ import java.util.Map;
 public class CursoDAO {
     private Context mContext;
     private static final String HTTP = "http://";
-    private static final String IP = "192.168.199.225";
+    private static final String IP = "10.3.18.32";
     private static final String BASE_URL = HTTP + IP;
     private static final String INSERT_URL = BASE_URL + "/conexao/cadastroCurso.php";
     private static final String LIST_URL = BASE_URL + "/conexao/listarCurso.php";
+    private static final String INSERTVIEW = BASE_URL + "/conexao/viewCurso.php";
 
     public CursoDAO() {
     }
@@ -265,5 +266,36 @@ public class CursoDAO {
         };
         RequestQueue requestQueue = Volley.newRequestQueue(mContext);
         requestQueue.add(stringRequest);
+    }
+    public void addView(String nomeCurso) {
+        try {
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, INSERTVIEW,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+
+                        }
+                    }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    if (error.networkResponse == null) {
+                        Toast.makeText(mContext, "Sem conectividade com a internet", Toast.LENGTH_SHORT).show();
+
+                    } else {
+                        Toast.makeText(mContext, error.toString().trim(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }) {
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    Map<String, String> data = new HashMap<>();
+                    data.put("cursoNome", nomeCurso);
+                    return data;
+                }
+            };
+            RequestQueue requestQueue = Volley.newRequestQueue(mContext);
+            requestQueue.add(stringRequest);
+        } catch (Exception e) {
+
+        }
     }
 }

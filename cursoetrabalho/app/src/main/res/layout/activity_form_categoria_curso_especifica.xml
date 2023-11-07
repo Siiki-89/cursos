@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".activity.form_categoria_curso_especifica">
 
     <TextView
@@ -13,7 +14,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
         android:text="Categoria"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"

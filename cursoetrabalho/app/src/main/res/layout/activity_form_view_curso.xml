@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".activity.form_view_curso">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,6 +21,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:text="txtDescrição"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView19" />
@@ -31,7 +33,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:text="Descrição"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -46,6 +48,7 @@
             android:layout_marginEnd="10dp"
             android:text="txtNomeFornecedor"
             android:textAlignment="textStart"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.037"
             app:layout_constraintStart_toStartOf="parent"
@@ -58,7 +61,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:text="Fornecedor"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -70,6 +73,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="112dp"
             android:text="qtdHorasTotais"
+            android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtQtdView3" />
 
@@ -81,6 +85,7 @@
             android:layout_marginTop="10dp"
             android:drawableEnd="@drawable/icon_olho"
             android:text="qtdView"
+            android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtNomeCurso3" />
 
@@ -91,6 +96,7 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="8dp"
             android:text="Presencial???"
+            android:textColor="@color/white"
             app:layout_constraintStart_toEndOf="@+id/txtQtdView3"
             app:layout_constraintTop_toBottomOf="@+id/txtNomeCurso3" />
 
@@ -117,7 +123,7 @@
             android:layout_marginEnd="10dp"
             android:text="NomeCurso"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -131,7 +137,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:text="Tem interesse?"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -170,7 +176,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:text="Relacionado"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"

@@ -43,11 +43,10 @@ public class CategoriaAdapter extends RecyclerView.Adapter<CategoriaAdapter.MyVi
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Categoria categoria = categorias.get(position);
         holder.txtCategoria1.setText(categoria.getTxtCategoria1());
-        holder.cardCategoriasCurso.setOnClickListener(new View.OnClickListener() {
+        holder.txtCategoria1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, form_categoria_curso_especifica.class);
-                Log.d("Sssss",categoria.getTxtCategoria1() );
                 intent.putExtra("categoriaCurso", categoria.getTxtCategoria1());
                 context.startActivity(intent);
             }
@@ -60,7 +59,7 @@ public class CategoriaAdapter extends RecyclerView.Adapter<CategoriaAdapter.MyVi
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        private Button txtCategoria1, txtCategoria2, txtCategoria3, txtCategoria4;
+        private Button txtCategoria1;
         private CardView cardCategoriasCurso;
 
         public MyViewHolder(@NonNull View itemView) {
