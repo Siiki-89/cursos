@@ -12,6 +12,7 @@
     $empresaEmail = validate($_POST['empresaEmail']);
     $empresaTelefone = validate($_POST['empresaTelefone']);
     
+    
     $sql = "INSERT INTO empresa (empresa_cnpj, empresa_nome, empresa_cep, empresa_UF, empresa_cidade, empresa_endereco, empresa_email, empresa_contato)
     VALUES ('$empresaCNPJ', '$empresaNome', '$empresaCEP', '$empresaUF', '$empresaCidade', '$empresaEndereco', '$empresaEmail', '$empresaTelefone')";
 

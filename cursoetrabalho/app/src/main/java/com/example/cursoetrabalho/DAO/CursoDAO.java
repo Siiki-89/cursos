@@ -35,7 +35,7 @@ import java.util.Map;
 public class CursoDAO {
     private Context mContext;
     private static final String HTTP = "http://";
-    private static final String IP = "10.3.18.32";
+    private static final String IP = "192.168.1.4";
     private static final String BASE_URL = HTTP + IP;
     private static final String INSERT_URL = BASE_URL + "/conexao/cadastroCurso.php";
     private static final String LIST_URL = BASE_URL + "/conexao/listarCurso.php";

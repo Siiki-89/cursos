@@ -1,8 +1,8 @@
 <?php
-$hostname = "localhost";
-$bancodedados = "cursoetrabalho";
+$hostname = "34.151.231.177";
+$bancodedados = "eurobotic";
 $usuario = "root";
-$senha = "";
+$senha = "123";
 
 $conexaoBD = new mysqli($hostname, $usuario, $senha, $bancodedados);
 
