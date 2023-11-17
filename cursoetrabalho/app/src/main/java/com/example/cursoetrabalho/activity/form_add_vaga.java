@@ -56,7 +56,7 @@ public class form_add_vaga extends AppCompatActivity implements AdapterView.OnIt
 
         iniciarVariaveis();
         iniciarMascaras();
-        configBotao();
+        salvarVaga();
     }
 
     private void iniciarVariaveis() {
@@ -90,7 +90,7 @@ public class form_add_vaga extends AppCompatActivity implements AdapterView.OnIt
         new MascaraData(vagaDataFinal);
     }
 
-    private void configBotao() {
+    private void salvarVaga() {
         btnInsrir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

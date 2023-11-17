@@ -17,6 +17,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.cursoetrabalho.DTO.EmpresaDTO;
 import com.example.cursoetrabalho.DTO.VagaDTO;
 import com.example.cursoetrabalho.adapter.PostagemTrabalhoVerticalAdapter;
+import com.example.cursoetrabalho.consultor.ObterIP;
 import com.example.cursoetrabalho.model.Trabalho;
 
 import org.json.JSONArray;
@@ -28,9 +29,9 @@ import java.util.List;
 import java.util.Map;
 
 public class VagaDAO {
-    private Context mContext;
+    private static Context mContext;
     private static final String HTTP = "http://";
-    private static final String IP = "192.168.1.4";
+    private static final String IP = "10.3.18.32";
     private static final String BASE_URL = HTTP + IP;
     private static final String INSERT_URL = BASE_URL + "/conexao/cadastroVaga.php";
     private static final String LIST_URL = BASE_URL + "/conexao/listarVaga.php";
@@ -56,7 +57,7 @@ public class VagaDAO {
 
             if (!categoria.isEmpty() && !nomeEmpresa.isEmpty() && !vagaQtd.isEmpty() &&
                     !vagaCargo.isEmpty() && !vagaDataInicial.isEmpty() && !vagaDataFinal.isEmpty() &&
-                    !vagaDesc.isEmpty() && !vagaImg.isEmpty()&& !vagaUrl.isEmpty()) {
+                    !vagaDesc.isEmpty() && !vagaImg.isEmpty()&& !vagaUrl.isEmpty()&& !vagaImg.isEmpty()) {
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, INSERT_URL, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

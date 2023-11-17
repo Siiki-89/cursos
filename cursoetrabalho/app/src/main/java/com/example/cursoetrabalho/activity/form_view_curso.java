@@ -37,7 +37,7 @@ public class form_view_curso extends AppCompatActivity {
 
         Intent intent = getIntent();
         String nomeCurso = intent.getStringExtra("txtNomeCurso");
-        final String[] cursoULR = new String[1];
+        final String[] cursoURL = new String[1];
         cursoDAO = new CursoDAO(this);
         cursoDAO.addView(nomeCurso);
 
@@ -48,7 +48,7 @@ public class form_view_curso extends AppCompatActivity {
                 prepararRecyclerView();
                 PostagemCursoHorizontalAdapter adapterPostagem =cursoDAO.imprimirDado(postagens, recyclerPostagem, "2", categoriaCurso);
                 recyclerPostagem.setAdapter(adapterPostagem);
-                cursoULR[0] = cursoUrl;
+                cursoURL[0] = cursoUrl;
                 loadCourseData(cursoNome, cursoFornecedor, cursoQtdHoras, cursoDescricao, cursoPresencial, cursoQtdView, cursoImg);
             }
         });
@@ -58,7 +58,7 @@ public class form_view_curso extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_VIEW);
 
-                intent.setData(Uri.parse(cursoULR[0]));
+                intent.setData(Uri.parse(cursoURL[0]));
 
                 startActivity(intent);
             }

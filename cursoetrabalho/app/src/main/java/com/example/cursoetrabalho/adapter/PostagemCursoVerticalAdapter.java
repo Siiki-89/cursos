@@ -2,6 +2,8 @@ package com.example.cursoetrabalho.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,7 +46,8 @@ public class PostagemCursoVerticalAdapter extends RecyclerView.Adapter<PostagemC
         holder.cursoQtdView.setText(postagem.getTxtQtdVisualizacao());
         holder.cursoIsPresencial.setText(postagem.getTxtIsPresencial());
         try {
-            Picasso.get().load(postagem.getImgCurso()).into(holder.imgCurso);
+            Bitmap bitmap = decodeBase64(postagem.getImgCurso());
+            holder.imgCurso.setImageBitmap(bitmap);
         } catch (Exception e){
         }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -64,7 +67,7 @@ public class PostagemCursoVerticalAdapter extends RecyclerView.Adapter<PostagemC
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
-        private TextView cursoNome, cursoQtdView, cursoQtdLike, cursoFornecedor, cursoIsPresencial;
+        private TextView cursoNome, cursoQtdView, cursoFornecedor, cursoIsPresencial;
         ImageView imgCurso;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -75,6 +78,10 @@ public class PostagemCursoVerticalAdapter extends RecyclerView.Adapter<PostagemC
             cursoIsPresencial= itemView.findViewById(R.id.txtCursoIsPresencial4);
             imgCurso = itemView.findViewById(R.id.imgCurso4);
         }
+    }
+    private Bitmap decodeBase64(String input) {
+        byte[] decodedBytes = android.util.Base64.decode(input, 0);
+        return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
     }
 
 }

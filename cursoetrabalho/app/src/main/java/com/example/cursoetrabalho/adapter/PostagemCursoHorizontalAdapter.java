@@ -2,6 +2,10 @@ package com.example.cursoetrabalho.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,7 +49,8 @@ public class PostagemCursoHorizontalAdapter extends RecyclerView.Adapter<Postage
         holder.txtFornecedor.setText(postagem.getTxtFornecedor());
         holder.txtQtdVisualizacao.setText(postagem.getTxtQtdVisualizacao());
         try {
-            Picasso.get().load(postagem.getImgCurso()).into(holder.imgCurso);
+            Bitmap bitmap = decodeBase64(postagem.getImgCurso());
+            holder.imgCurso.setImageBitmap(bitmap);
         } catch (Exception e){
         }
 
@@ -76,6 +81,10 @@ public class PostagemCursoHorizontalAdapter extends RecyclerView.Adapter<Postage
             txtQtdVisualizacao = itemView.findViewById(R.id.txtQtdVisualizacao);
             imgCurso = itemView.findViewById(R.id.imgCurso4);
         }
+    }
+    private Bitmap decodeBase64(String input) {
+        byte[] decodedBytes = Base64.decode(input, Base64.DEFAULT);
+        return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
     }
 
 }

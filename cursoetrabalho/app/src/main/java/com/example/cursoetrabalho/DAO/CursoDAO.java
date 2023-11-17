@@ -21,12 +21,14 @@ import com.android.volley.toolbox.Volley;
 import com.example.cursoetrabalho.DTO.CursoDTO;
 import com.example.cursoetrabalho.adapter.PostagemCursoHorizontalAdapter;
 import com.example.cursoetrabalho.adapter.PostagemCursoVerticalAdapter;
+import com.example.cursoetrabalho.consultor.ObterIP;
 import com.example.cursoetrabalho.model.Postagem;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,12 +36,11 @@ import java.util.Map;
 
 public class CursoDAO {
     private Context mContext;
+    private static final String IP = "10.3.18.32";
     private static final String HTTP = "http://";
-    private static final String IP = "192.168.1.4";
     private static final String BASE_URL = HTTP + IP;
     private static final String INSERT_URL = BASE_URL + "/conexao/cadastroCurso.php";
     private static final String LIST_URL = BASE_URL + "/conexao/listarCurso.php";
-    private static final String INSERTVIEW = BASE_URL + "/conexao/viewCurso.php";
 
     public CursoDAO() {
     }
@@ -63,8 +64,10 @@ public class CursoDAO {
             String cursoUrl = cursoDTO.getCursoUrl();
             String cursoImg = cursoDTO.getImgLogo();
 
+
             if (!cursoCategoria.isEmpty() && !cursoNome.isEmpty() && !cursoFornecedor.isEmpty() &&
-                    !cursoQtdHoras.isEmpty() && !cursoDescricao.isEmpty() && !cursoUrl.isEmpty() && !cursoPresencial.isEmpty()) {
+                    !cursoQtdHoras.isEmpty() && !cursoDescricao.isEmpty() && !cursoUrl.isEmpty() && !cursoPresencial.isEmpty()
+                    && !cursoImg.isEmpty()) {
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, INSERT_URL, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -99,8 +102,6 @@ public class CursoDAO {
                         data.put("cursoPresencial", cursoPresencial);
                         data.put("cursoQtdHrs", cursoQtdHoras);
                         data.put("cursoImg", cursoImg);
-                        data.put("cursoNomeIMG", cursoNome.trim().replaceAll("\\s+", " "));
-                        data.put("URL" , IP);
                         return data;
                     }
                 };
@@ -122,6 +123,8 @@ public class CursoDAO {
                     public void onResponse(String response) {
                         try {
                             JSONArray jsonArray = new JSONArray(response);
+                            List<Postagem> postagens = new ArrayList<>();
+
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject jsonObject = jsonArray.getJSONObject(i);
 
@@ -129,9 +132,10 @@ public class CursoDAO {
                                         jsonObject.getString("curso_nome"),
                                         jsonObject.getString("curso_fornecedor"),
                                         jsonObject.getString("curso_visualizacao"),
-                                        jsonObject.getString("curso_img")));
+                                        jsonObject.getString("curso_imagem")));
                             }
-                            PostagemCursoHorizontalAdapter adapter = new PostagemCursoHorizontalAdapter(mContext ,postagens);
+
+                            PostagemCursoHorizontalAdapter adapter = new PostagemCursoHorizontalAdapter(mContext, postagens);
                             recyclerPostagem.setAdapter(adapter);
 
                         } catch (JSONException e) {
@@ -170,19 +174,25 @@ public class CursoDAO {
                     @Override
                     public void onResponse(String response) {
                         try {
+                            List<Postagem> postagens = new ArrayList<>();
+
                             JSONArray jsonArray = new JSONArray(response);
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject jsonObject = jsonArray.getJSONObject(i);
+
+                                String nomeCurso = jsonObject.getString("curso_nome");
+                                String fornecedor = jsonObject.getString("curso_fornecedor");
+                                String visualizacao = jsonObject.getString("curso_visualizacao");
                                 String presencial = jsonObject.getString("curso_presencial").equals("S") ? "Curso presencial" : "Não presencial";
-                                postagens.add(new Postagem(
-                                        jsonObject.getString("curso_nome"),
-                                        jsonObject.getString("curso_fornecedor"),
-                                        jsonObject.getString("curso_visualizacao"),
-                                        presencial,
-                                        jsonObject.getString("curso_img")));
+                                String imgCurso = jsonObject.getString("curso_imagem");
+
+                                postagens.add(new Postagem(nomeCurso, fornecedor, visualizacao, presencial, imgCurso));
                             }
-                            PostagemCursoVerticalAdapter adapter = new PostagemCursoVerticalAdapter(mContext ,postagens);
-                            recyclerPostagem.setAdapter(adapter);
+
+                            if (!postagens.isEmpty()) {
+                                PostagemCursoVerticalAdapter adapter = new PostagemCursoVerticalAdapter(mContext, postagens);
+                                recyclerPostagem.setAdapter(adapter);
+                            }
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -217,34 +227,34 @@ public class CursoDAO {
                     public void onResponse(String response) {
                         try {
                             JSONArray jsonArray = new JSONArray(response);
-                            for (int i = 0; i < jsonArray.length(); i++) {
 
+                            for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject curso = jsonArray.getJSONObject(i);
 
-                                String cursoNome = curso.getString("curso_nome");
-                                String cursoFornecedor = curso.getString("curso_fornecedor");
-                                String cursoQtdHoras = curso.getString("curso_qtd_hrs");
-                                String cursoDescricao = curso.getString("curso_descricao");
-                                String cursoPresencial;
-                                if(curso.getString("curso_presencial").equals("S")){
-                                    cursoPresencial="Curso presencial";
-                                } else {
-                                    cursoPresencial="Não presencial";
-                                }
-                                String cursoUrl = curso.getString("curso_url");
-                                String cursoQtdView = curso.getString("curso_visualizacao");
+                                String nomeCurso = curso.getString("curso_nome");
+                                String fornecedor = curso.getString("curso_fornecedor");
+                                String qtdHoras = curso.getString("curso_qtd_hrs");
+                                String descricao = curso.getString("curso_descricao");
+                                String presencial = obterTipoPresencial(curso.getString("curso_presencial"));
+                                String urlCurso = curso.getString("curso_url");
+                                String qtdVisualizacao = curso.getString("curso_visualizacao");
                                 String categoriaCurso = curso.getString("curso_categoria");
-                                String cursoImg = curso.getString("curso_img");
+                                String imgCurso = curso.getString("curso_imagem");
 
-                                listener.onCategoriaCursoObtida(categoriaCurso, cursoNome, cursoFornecedor, cursoQtdHoras,
-                                        cursoDescricao, cursoPresencial, cursoUrl, cursoQtdView, cursoImg);
-
+                                listener.onCategoriaCursoObtida(categoriaCurso, nomeCurso, fornecedor, qtdHoras,
+                                        descricao, presencial, urlCurso, qtdVisualizacao, imgCurso);
                             }
 
                         } catch (JSONException e) {
                             e.printStackTrace();
+                            // Trate a exceção de maneira mais específica, se necessário.
                         }
                     }
+
+                    private String obterTipoPresencial(String presencial) {
+                        return "S".equals(presencial) ? "Curso presencial" : "Não presencial";
+                    }
+
                 },
                 new Response.ErrorListener() {
                     @Override
@@ -269,7 +279,7 @@ public class CursoDAO {
     }
     public void addView(String nomeCurso) {
         try {
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, INSERTVIEW,
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, LIST_URL,
                     new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {

@@ -29,6 +29,7 @@ import com.google.android.material.textfield.TextInputEditText;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.sql.Blob;
 
 public class form_add_curso extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -112,7 +113,7 @@ public class form_add_curso extends AppCompatActivity implements AdapterView.OnI
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 
         // Comprime o bitmap em formato JPEG
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 40, outputStream);
 
         byte[] imageBytes = outputStream.toByteArray();
 

@@ -17,6 +17,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.cursoetrabalho.DTO.EmpresaDTO;
 import com.example.cursoetrabalho.adapter.PostagemCursoVerticalAdapter;
 import com.example.cursoetrabalho.adapter.PostagemTrabalhoVerticalAdapter;
+import com.example.cursoetrabalho.consultor.ObterIP;
 import com.example.cursoetrabalho.model.Postagem;
 import com.example.cursoetrabalho.model.Trabalho;
 
@@ -29,8 +30,8 @@ import java.util.List;
 import java.util.Map;
 
 public class EmpresaDAO {
-    private Context mContext;
-    private static final String BASE_URL = "http://192.168.1.4/";
+    private static Context mContext;
+    private static final String BASE_URL = "http://10.3.18.32/";
     private static final String INSERT_URL = BASE_URL + "/conexao/cadastroEmpresa.php";
 
     public EmpresaDAO(Context context) {
