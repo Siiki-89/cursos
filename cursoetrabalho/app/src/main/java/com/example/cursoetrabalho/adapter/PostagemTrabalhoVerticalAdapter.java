@@ -45,7 +45,6 @@ public class PostagemTrabalhoVerticalAdapter extends RecyclerView.Adapter <Posta
         holder.txtEmpresa.setText(trabalho.getTxtEmpresa());
         holder.txtRegiao.setText(trabalho.getTxtRegiao());
         try {
-            Picasso.get().load(trabalho.getImgTrabalho()).into(holder.imgTrabalho);
             Bitmap bitmap = decodeBase64(trabalho.getImgTrabalho());
             holder.imgTrabalho.setImageBitmap(bitmap);
         } catch (Exception e){

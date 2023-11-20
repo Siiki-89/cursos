@@ -5,8 +5,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -96,5 +99,15 @@ public class form_view_curso extends AppCompatActivity {
             Picasso.get().load(cursoImg).into(imgCurso);
         } catch (Exception e) {
         }
+        try {
+            Bitmap bitmap = decodeBase64(cursoImg);
+            imgCurso.setImageBitmap(bitmap);
+        } catch (Exception e){
+        }
+    }
+
+    private Bitmap decodeBase64(String input) {
+        byte[] decodedBytes = Base64.decode(input, Base64.DEFAULT);
+        return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
     }
 }

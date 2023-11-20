@@ -113,7 +113,7 @@ public class form_add_curso extends AppCompatActivity implements AdapterView.OnI
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 
         // Comprime o bitmap em formato JPEG
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 40, outputStream);
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
 
         byte[] imageBytes = outputStream.toByteArray();
 

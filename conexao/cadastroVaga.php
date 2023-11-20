@@ -29,8 +29,8 @@ $vagaUrl = validate($_POST['vagaUrl']);
 $empresa_id = buscarIdEmpresa($conexaoBD, $vagaEmpresaNome);
 
 if ($empresa_id !== false) {
-    $sql = "INSERT INTO vaga (empresa_idempresa, vaga_descricao, vaga_cargo, vaga_data_vaga, vaga_data_prazo, vaga_categoria, vaga_quantidade, vaga_img, vaga_url)
-            VALUES ('$empresa_id', '$vagaDescricao', '$vagaCargo', '$vagaDataVaga', '$vagaDataPrazo', '$vagaCategoria', '$vagaQuantidade', '$vagaImg', '$vagaUrl')";
+    $sql = "INSERT INTO vaga (empresa_nome, vaga_descricao, vaga_cargo, vaga_data_vaga, vaga_data_prazo, vaga_categoria, vaga_quantidade, vaga_img, vaga_url)
+            VALUES ('$vagaEmpresaNome', '$vagaDescricao', '$vagaCargo', '$vagaDataVaga', '$vagaDataPrazo', '$vagaCategoria', '$vagaQuantidade', '$vagaImg', '$vagaUrl')";
 
     if ($conexaoBD->query($sql)) {
         echo json_encode([

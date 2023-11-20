@@ -3,8 +3,11 @@ package com.example.cursoetrabalho.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -55,6 +58,11 @@ public class form_view_trabalho extends AppCompatActivity {
                     Picasso.get().load(imgVaga).into(imgVagaView);
                 } catch (Exception e){
                 }
+                try {
+                    Bitmap bitmap = decodeBase64(imgVaga);
+                    imgVagaView.setImageBitmap(bitmap);
+                } catch (Exception e){
+                }
                 VagaURL[0] = vagaUrl;
             }
         });
@@ -68,5 +76,9 @@ public class form_view_trabalho extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+    private Bitmap decodeBase64(String input) {
+        byte[] decodedBytes = Base64.decode(input, Base64.DEFAULT);
+        return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
     }
 }
